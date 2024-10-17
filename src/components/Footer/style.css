@@ -1,4 +1,97 @@
 .footer_container {
    background-color: #3d3d3d;
    width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
 }
+
+/* FOOTER SUPERIOR */
+
+.footer_superior {
+   width: 60%;   
+   display: flex;
+}
+.footer_superior_dev {
+   width: 33%;
+   color: white;
+   height: auto;
+}
+.footer_superior_dev img {
+   width: 100%;
+   height: 155px;
+   object-fit: cover;
+   margin-top: 40px;
+}
+.footer_superior_negrito {
+   font-weight: bolder;
+}
+#footer_superior_link {
+   color: white;
+   text-decoration: none;
+   font-weight: bolder;
+}
+#footer_superior_link:hover {
+   color: yellow;
+}
+.footer_superior_redes {
+   width: 34%;
+   display: flex;
+   justify-content: center;
+}
+.footer_superior_redes_div {
+   width: 60%;
+   height: 100px;
+   margin-top: 70px;
+   margin-left: 30px;
+}
+#footer_superior_redes_titulo {
+   color: white;
+   font-size: 16px;
+   font-weight: bolder;
+}
+.footer_superior_redes_div div {
+   margin-top: 20px;
+}
+.redes_icons {
+   color: white;
+   font-size: 35px;
+   cursor: pointer;
+}
+#insta:hover {
+   color: rgb(247, 131, 218);
+}
+#face {
+   margin-left: 15px;
+}
+#face:hover {
+   color: rgb(106, 106, 250);
+}
+#zap {
+   margin-left: 15px;
+}
+#zap:hover {
+   color: rgb(115, 253, 115);
+}
+.footer_superior_pagamento {
+   background-color: red;
+   width: 33%;
+}
+/* FOOTER SUPERIOR - FIM */
+
+/* FOOTER INFERIOR  */
+
+.footer_inferior {
+   width: 40%;   
+   display: flex;
+   justify-content: center;
+   padding: 5px;
+   margin-top: 50px;
+}
+.footer_inferior text {
+   color: white;
+   font-size: 15px;
+}
+
+/* FOOTER SUPERIOR - FIM */
