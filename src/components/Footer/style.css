@@ -75,9 +75,28 @@
    color: rgb(115, 253, 115);
 }
 .footer_superior_pagamento {
-   background-color: red;
    width: 33%;
 }
+.footer_superior_pagamento_div {
+   width: 80%;
+   height: 100px;
+   margin-top: 70px;
+   margin-left: 30px;
+   color: white;
+}
+.footer_superior_pagamento_div text {
+   font-size: 16px;
+   font-weight: bolder;
+}
+.pagamento_icons_div {
+   margin-top: 18px;
+}
+.pagamento_icons {
+   color: white;
+   font-size: 50px;
+   margin-right: 20px;
+}
+
 /* FOOTER SUPERIOR - FIM */
 
 /* FOOTER INFERIOR  */

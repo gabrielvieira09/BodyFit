@@ -3,6 +3,12 @@ import "./style.css";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
 import { RiWhatsappFill } from "react-icons/ri";
+import { FaCcVisa } from "react-icons/fa";
+import { FaCcMastercard } from "react-icons/fa";
+import { FaCcAmex } from "react-icons/fa6";
+import { SiPicpay } from "react-icons/si";
+import { FaBarcode } from "react-icons/fa6";
+import { FaPix } from "react-icons/fa6";
 import logo from "../../assets/logos/logo(comFundo).png"
 
 export default function Footer() {
@@ -33,7 +39,23 @@ export default function Footer() {
                </div>
             </div>
          </div>
-         <div className="footer_superior_pagamento"></div>
+         <div className="footer_superior_pagamento">
+            <div className="footer_superior_pagamento_div">
+               <text>Formas de pagamento</text>
+               <div className="pagamento_icons_div">
+                  <div>
+                     <FaCcVisa className="pagamento_icons"/>
+                     <FaCcMastercard className="pagamento_icons"/>
+                     <FaCcAmex className="pagamento_icons"/>
+                  </div>
+                  <div>
+                     <SiPicpay className="pagamento_icons"/>
+                     <FaBarcode className="pagamento_icons"/>
+                     <FaPix className="pagamento_icons"/>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
       <div className="footer_inferior">
          <text>Copyright © 2024 BodyFit. Todos os direitos reservados.</text>
