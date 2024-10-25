@@ -9,7 +9,6 @@ import banner4 from "../assets/banners/banner_4.png";
 import banner5 from "../assets/banners/banner_5.png";
 import banner6 from "../assets/banners/banner_6.png";
 import imageHome from "../assets/image_pages/image(home).png"
-import imageHome2 from "../assets/image_pages/image2(home).png"
 import { IoIosArrowForward, IoIosArrowBack  } from "react-icons/io";
 
 export default function Home() {

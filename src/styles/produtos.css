@@ -1,0 +1,155 @@
+
+
+/*BANNER PAGES*/
+
+.div_banner_pages {
+   width: 100%;  
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   position: relative;
+}
+.div_banner_pages img {
+   margin-top: 8px;
+   width: 99%;
+   height: 550px;
+   position: relative;
+}
+.detalhamento_banner {
+   width: 80%;
+   display: flex;
+   justify-content: space-between;
+   position: absolute;
+   top: 88%;
+}
+.autenticidade_det {
+   width: 33%;
+   background-color: #3d3d3d;
+   border-top-left-radius: 25px;
+   border-bottom-left-radius: 25px;
+}
+.autenticidade_det h2 {
+   font-size: 15px;
+   color: yellow;
+   padding: 5px;
+   padding-top: 10px;
+   margin-left: 10px;
+}
+.autenticidade_det div {
+   width: 90%;
+   margin-left: 15px;
+   padding-bottom:10px ;
+}
+.autenticidade_det text {
+   color: white;
+}
+.qualidade_det {
+   width: 33%;
+   background-color: #3d3d3d;
+}
+.qualidade_det h2 {
+   font-size: 15px;
+   color: yellow;
+   padding: 5px;
+   padding-top: 10px;
+   margin-left: 10px;
+}
+.qualidade_det div {
+   width: 90%;
+   margin-left: 15px;
+   padding-bottom:10px ;
+}
+.qualidade_det text {
+   color: white;
+}
+.velocidade_det {
+   width: 33%;
+   background-color: #3d3d3d;
+   border-top-right-radius: 25px;
+   border-bottom-right-radius: 25px;
+}
+.velocidade_det h2 {
+   font-size: 15px;
+   color: yellow;
+   padding: 5px;
+   padding-top: 10px;
+   margin-left: 10px;
+}
+.velocidade_det div {
+   width: 90%;
+   margin-left: 15px;
+   padding-bottom:10px ;
+}
+.velocidade_det text {
+   color: white;
+}
+/*BANNER PAGES - fim*/
+
+/*PRODUTOS MAIN*/
+
+.produtos_main {
+   margin-top: 80px;
+   width: 100%;
+}
+
+/*FILTRAGEM*/
+.div_filtragem {
+   padding-left: 20px ;
+   width: 22.5%;
+   height: 100%;
+   padding-bottom: 20px;
+   overflow-y: auto;
+}
+.filtragem_container {
+   width: 93%;
+   display: flex;
+   flex-direction: column;
+   border-radius: 20px;
+   border: 2px solid black
+}
+.filtragem_container h3 {
+   margin-left: 20px;
+   margin-top: 10px;
+   margin-bottom: 5px;
+}
+.marcas_filtragem {
+   margin-left: 20px;
+   width: 85%;
+   border-top: 2px solid black;
+   border-bottom: 2px solid black;
+   margin-bottom: 10px;
+   padding-bottom: 10px;
+   padding-top: 10px;
+}
+.marcas_filtragem div {
+   display: flex;
+   align-items: center;
+   width:100%;
+}
+.marcas_filtragem input {
+   width: 20px;
+   height: 20px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   cursor: pointer;
+}
+.marcas_filtragem text {
+   font-size: 18px;
+   color: rgb(144, 144, 144);
+   margin-left: 10px;
+}
+.filtragem_container button {
+   width: 80%;
+   height: 40px;
+   background-color: yellow;
+   border-radius: 15px;
+   margin-left: 30px;
+   margin-bottom: 10px;
+   font-size: 16px;
+   font-weight: bold;
+   cursor: pointer;
+}
+/*FILTRAGEM - fim*/
+
+/*PRODUTOS MAIN - fim*/

@@ -1,0 +1,81 @@
+
+/*DETALHES PRODUTO*/
+
+.div_detalhesProduto {
+   width: 100%;
+   height: 200px;
+   background-color: white;
+}
+
+/*DETALHES PRODUTO - fim*/
+
+/*CURIOSIDADES*/
+
+.div_curiosidades {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+}
+.div_curiosidades img {
+   width: 50%;
+}
+.div_curiosidades div {
+   background-color: #3d3d3d;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.div_curiosidades h2 {
+   font-weight: bold;
+   color: yellow;
+   font-size: 25px;
+   margin-bottom: 20px;
+}
+.div_curiosidades text {
+   width: 60%;
+   font-size: 20px;
+   color: white;
+   margin-top: 20px;
+}
+
+.div_curiosidades2 {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+}
+.div_curiosidades2 img {
+   width: 50%;
+}
+.div_curiosidades2 div {
+   background-color: yellow;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.div_curiosidades2 h2 {
+   color: rgb(0, 0, 0);
+   font-weight: bold;
+   font-size: 25px;
+   margin-bottom: 20px;
+}
+.div_curiosidades2 text {
+   width: 60%;
+   font-size: 20px;
+   color: rgb(0, 0, 0);
+   margin-top: 20px;
+}
+.div_curiosidades2 ul {
+   width: 60%;
+   font-size: 20px;
+   color: rgb(0, 0, 0);
+   margin-top: 20px;
+}
+.div_curiosidades2 li {
+   padding: 10px;
+}
+
+
+
+/*CURIOSIDADES- fim*/

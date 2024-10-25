@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./pages/Login";
-import Registro from "./pages/Registro";
+import Cadastro from "./pages/Cadastro";
 import Home from "./pages/Home";
 import DetalhesProduto from "./pages/DetalhesProduto";
 import Carrinho from "./pages/Carrinho";
@@ -17,12 +16,12 @@ export default function AppRoutes() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registro" element={<Registro />} />
+        <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/produto/:id" element={<DetalhesProduto />} />
         <Route path="/carrinho" element={<Carrinho />} />
         <Route path="/historico-compras" element={<HistoricoCompras />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/produtos" element={<Produtos />} />
         <Route path="/admin/produtos" element={<Produtos />} />
         <Route path="/admin/vendas" element={<Vendas />} />
         <Route path="/admin/vendas/:id" element={<DetalhesVenda />} />

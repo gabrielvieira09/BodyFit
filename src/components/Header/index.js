@@ -33,7 +33,9 @@ export default function Header() {
       </div>
       <div className="header_inferior">
          <div className="header_inferior_logo">
-            <img src={logo}/>
+            <a href="/">
+               <img src={logo}/>
+            </a>
          </div>
          <div className="header_inferior_navigation">
             <div className="header_inferior_navigation_cima">
@@ -56,7 +58,7 @@ export default function Header() {
                </div>
             </div>
             <div className="header_inferior_navigation_baixo">
-               <a className="divs_nav_individual" href="#">Todos os Produtos</a>
+               <a className="divs_nav_individual" href="produtos">Todos os Produtos</a>
                <a className="divs_nav_individual" href="#">Lançamentos</a>
                <a className="divs_nav_individual" href="#">Whey Protein</a>
                <a className="divs_nav_individual" href="#">Barra de Proteina</a>
