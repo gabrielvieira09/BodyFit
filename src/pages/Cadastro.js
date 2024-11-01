@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/cadastro.css"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { FaEyeSlash, FaUser } from "react-icons/fa6";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { MdClose } from "react-icons/md";
 
 export default function Cadastro() {
+   
+   const [modalVisible, setModalVisible] = useState(false);
+   const [mostrarSenha, setMostrarSenha] = useState(false);
+
+   const openModal = () => setModalVisible(true);
+   const closeModal = () => setModalVisible(false);
+
+   useEffect(() => {
+      if (modalVisible) {
+         document.body.classList.add('no-scroll');
+      } else {
+         document.body.classList.remove('no-scroll');
+      }
+      
+      return () => document.body.classList.remove('no-scroll');
+   }, [modalVisible]);
+
   return (
     <div className="cadastro_container">
-      <Header/>
+      <Header openModal={openModal}/>
       <div className="login_no_cadastro">
          <text>JÁ SOU CLIENTE</text>
-         <button>Clique aqui para fazer Login</button>
+         <button onClick={openModal}>Clique aqui para fazer Login</button>
       </div>
       <div className="line_cadastro">
          <div></div>
@@ -74,6 +94,44 @@ export default function Cadastro() {
          </div>   
       </div>
       <button className="botao_cadastrar">CADASTRAR</button>
+      {modalVisible &&
+         <div className="modal-login_container">
+            <div className="caixa_de_informacoes">
+               <div className="caixa_icone_fechar" onClick={closeModal}>
+                  <MdClose className="icone_de_fechar" />
+               </div>
+
+               <div className="informe_seus_dados">
+                  <p>Informe seus dados para continuar</p>
+               </div>
+
+               <div className="caixas_de_textos_gerais">
+
+                  <div className="caixa_de_texto_usuario">
+                     <FaUser className="icone_usuario" />
+                     <input type="email" className="digite_aqui" placeholder="DIGITE SEU EMAIL" />
+                  </div>
+
+                  <br />
+
+                  <div className="caixa_de_texto_senha">
+                     <RiLockPasswordFill className="icone_senha" />
+                     <input type={mostrarSenha ? "text" : "password"} className="digite_aqui" placeholder="DIGITE SEU SENHA" />
+                     <FaEyeSlash className="icone_olho"
+                     onMouseDown={() => setMostrarSenha(true)}
+                     onMouseUp={() => setMostrarSenha(false)}
+                     onMouseLeave={() => setMostrarSenha(false)}
+                     />
+                  </div>
+
+               </div>
+               <div className="botao_continuar_definitivo">
+                  <p className="texto_do_botao">CONTINUAR</p>
+               </div>
+               <br />
+            </div>
+         </div>
+      }
       <Footer />
     </div>
   );

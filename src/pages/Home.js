@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/home.css"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ProdutosV from "../components/ProdutoV";
 import banner1 from "../assets/banners/banner_1.png";
 import banner2 from "../assets/banners/banner_2.png";
 import banner3 from "../assets/banners/banner_3.png";
@@ -10,11 +11,36 @@ import banner5 from "../assets/banners/banner_5.png";
 import banner6 from "../assets/banners/banner_6.png";
 import imageHome from "../assets/image_pages/image(home).png"
 import { IoIosArrowForward, IoIosArrowBack  } from "react-icons/io";
+import Integralmedica_creatina from "../assets/produtos/creatina/Integralmedica.png"
+import Max_creatina from "../assets/produtos/creatina/Max.png"
+import Probiotica_creatina from "../assets/produtos/creatina/Probiotica.png"
+import Max_barra_proteina from "../assets/produtos/barra_proteina/Max.png"
+import YoPRO_barra_proteina from "../assets/produtos/barra_proteina/YoPro.png"
+import BOLD_barra_proteina from "../assets/produtos/barra_proteina/BOLD.png"
+import Max_whey from "../assets/produtos/whey_protein/Max.png"
+import DiaboVerde_whey from "../assets/produtos/whey_protein/DiaboVerde.png"
 
 export default function Home() {
 
+      const [modalVisible, setModalVisible] = useState(false);
+      const [mostrarSenha, setMostrarSenha] = useState(false);
+      
+      const openModal = () => setModalVisible(true);
+      const closeModal = () => setModalVisible(false);
+      
+      useEffect(() => {
+         if (modalVisible) {
+            document.body.classList.add('no-scroll');
+         } else {
+            document.body.classList.remove('no-scroll');
+         }
+         
+         return () => document.body.classList.remove('no-scroll');
+      }, [modalVisible]);
+      
+
+
       const [Imagens, setImages] = useState(0);
-    
       // Lista de URLs de imagens para o carrossel
       const image = [
         banner1,
@@ -54,7 +80,7 @@ export default function Home() {
 
    return (
       <div className="home_container">
-         <Header />
+         <Header openModal={openModal} />
          <div className="div_banner_principal">
             <div className="banner_principal">
                <img src={image[Imagens]}/>
@@ -74,7 +100,64 @@ export default function Home() {
             </div>
          </div>
          <div className="div_produtos_maisVendido">
-            <div className="produtos_maisVendido"></div>
+            <div className="produtos_maisVendido">
+               <div>
+                  <ProdutosV
+                  image={Integralmedica_creatina} 
+                  name="Creatina Hardcore"
+                  price="110,99"
+                  discount="6"
+                  />
+                  <ProdutosV
+                  image={YoPRO_barra_proteina} 
+                  name="YoPRO: Barra de Proteínas Nutrata Chocolate 15g"
+                  price="11,67"
+                  discount="2"
+                  />
+               </div>
+               <div>
+                  <ProdutosV
+                  image={Max_barra_proteina} 
+                  name="Top Whey Bar"
+                  price="10,89"
+                  discount="2"
+                  />
+                  <ProdutosV
+                  image={Max_whey} 
+                  name="Whey PRO (1kg) Max Titanium"
+                  price="68,00"
+                  discount="5"
+                  />
+               </div>
+               <div>
+                  <ProdutosV
+                  image={Probiotica_creatina} 
+                  name="Creatina Pura (300g) - Probiótica"
+                  price="110,99"
+                  discount="6"
+                  />
+                  <ProdutosV
+                  image={DiaboVerde_whey} 
+                  name="Blend Protein Diabo Verde (900g) FTW"
+                  price="72,00"
+                  discount="4"
+                  />
+               </div>
+               <div>
+                  <ProdutosV
+                  image={BOLD_barra_proteina} 
+                  name="La Fajor leitinho (50g) La Ganexa"
+                  price="8,91"
+                  discount="2"
+                  />
+                  <ProdutosV
+                  image={Max_creatina} 
+                  name="Horus (300g) Max Titanium"
+                  price="113,17"
+                  discount="12"
+                  />
+               </div>
+            </div>
          </div>
          <img className="image_home" src={imageHome}></img>
          <div className="div_explicacao">

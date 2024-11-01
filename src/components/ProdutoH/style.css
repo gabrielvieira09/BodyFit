@@ -1,98 +1,98 @@
-.ProdutosV_container {
-   padding: 30px;
-}
-
-/*PRODUTOS VERTICAL*/
-.ProdutosV_component {
+/*PRODUTOS HORIZONTAL*/
+.ProdutosH_component {
    user-select: none;
-   width: 280px;
+   width: 700px;
    margin: 10px;
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    margin-top: 10px;
+   box-shadow: 0.1rem 0.1rem 0.5rem 0 black;
+   border: 1px solid rgb(192, 192, 192);
+   border-radius: 5px;
+   padding: 10px;
 }
-.ProdutosV_component:hover {
-   box-shadow: 0 0 0.5rem rgb(184, 184, 184);
+.ProdutosH_component:hover {
 }
-.ProdutosV_heart {
-   width: 100%;
+.ProdutosH_heart {
+   width: 8%;
 }
-.ProdutosV_heart div {
+.ProdutosH_heart div {
    width: 20px;
    height: 20px;
    margin: 10px;
 }
-.heart_icon_ProdutosV-notFavorite {
+.heart_icon_ProdutosH-notFavorite {
    width: 20px;
    height: 20px;
    cursor: pointer;
    background-color: white;
 }
-.heart_icon_ProdutosV-Favorite {
+.heart_icon_ProdutosH-Favorite {
    color: #ebeb11;
    width: 20px;
    height: 20px;
    cursor: pointer;
 }
 
-.ProdutosV_image {
-   width: 100%;
+.ProdutosH_image {
+   width: 20%;
    display: flex;
    align-items: center;
    justify-content: center;
 }
-.ProdutosV_image img {
+.ProdutosH_image img {
    width: 150px;
    height: 150px;
 }
-.ProdutosV_name {
-   width: 100%;
+.ProdutosH_name {
+   width: 30%;
    height: 90px;
    display: flex;
    justify-content: center;
 }
-.ProdutosV_name div {
+.ProdutosH_name div {
    margin-top: 15px;
    width: 80%;
    display: flex;
    text-align: center;
    justify-content: center;
 }
-.ProdutosV_name text {
+.ProdutosH_name text {
    font-weight: bold;
    font-family: cooper black;
 }
-.ProdutosV_values{
+.ProdutosH_values_remover{
+   width: 45%;
+}
+.ProdutosH_values_price {
    width: 100%;
-}
-.values_price {
-   width: 60%;
    font-weight: 600;
-   font-size: 20px;
+   font-size: 25px;
    margin-left: 10px;
+   margin-top: 15px;
 }
-.values_discount {
-   width: 50%;
-   font-weight: 600;
-   font-size: 12px;
+.ProdutosH_values_discount {
+   width: 90%;
+   font-size: 14px;
    margin-top: 5px;
    margin-left: 10px;
 }
-.ProdutosV_carrinho {
+.ProdutosH_remover {
    width: 100%;
    height: 65px;
    display: flex;
    align-items: center;
-   justify-content: center;
 }
-.ProdutosV_carrinho button {
-   width: 85%;
+.ProdutosH_remover button {
+   width: 90%;
    height: 45px;
    font-size: 16px;
+   margin-top: 10px;
+   margin-left: 10px;
    color: white;
    background-color: black;
    border-radius: 10px;
    border: none;
    cursor: pointer;
 }
-/*PRODUTOS VERTICAL - fim*/
+/*PRODUTOS HORIZONTAL - fim*/

@@ -3,9 +3,213 @@
 
 .div_detalhesProduto {
    width: 100%;
-   height: 200px;
-   background-color: white;
+   display: flex;
+   user-select: none;
+   margin-top: 20px;
+   margin-bottom: 20px;
 }
+.div_detalhesProduto_esquerda{
+   width: 50%;
+   display: flex;
+}
+.back_detalhesProduto {
+   width: 10%;
+}
+.icon_arrow_back {
+   width: 50px;
+   height: 50px;
+   margin-top: 20px;
+   cursor: pointer;
+}
+.image_detalhesProduto {
+   width: 80%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.image_detalhesProduto img {
+   width: 400px;
+   height: 400px;
+}
+.haert_detalhesProduto {
+   width: 10%;
+}
+.haert_detalhesProduto {
+   width: 30px;
+   height: 30px;
+   margin-top: 20px;
+}
+.icon_heart_heart-notFavorite {
+   width: 30px;
+   height: 30px;
+   margin-top: 20px;
+   cursor: pointer;
+}
+.icon_heart_heart-Favorite {
+   color: #ebeb11;
+   width: 30px;
+   height: 30px;
+   margin-top: 20px;
+   cursor: pointer;
+}
+.div_detalhesProduto_direita {
+   width: 50%;
+   display: flex;
+}
+.name_description_detalhesProduto {
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.name_detalhesProduto {
+   width: 90%;
+   height: 80px;
+   border-bottom: 3px solid black;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.name_detalhesProduto h1 {
+   font-family: cooper black;
+   user-select: none;
+}
+.description_detalhesProduto {
+   width: 80%;
+   display: flex;
+   align-items: center;
+   justify-content: center;   
+}
+.description_detalhesProduto p {
+   margin-top: 30px;
+   user-select: none;
+}
+.pagamento_detalhesProduto {
+   width: 50%;
+}
+.div_pagamento {
+   width: 90%;
+   margin-top: 10px;
+   margin-bottom: 30px;
+   border-radius: 20px;
+   border:3px solid rgb(208, 208, 208)
+}
+.pagamento_preco {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+.pagamento_preco h3 {
+   margin: 30px;
+   font-size: 30px;
+}
+.pagamento_estoque_carrinho {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   height: 200px;
+}
+.estoque_pagamento {
+   width: 90%;
+   background-color: white;
+   border:1px solid gray;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   padding-top: 18px;
+   padding-bottom: 18px;
+   border-radius: 5px;
+}
+.carrinho_pagamento {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+.carrinho_pagamento button {
+   width: 90%;
+   padding-top: 18px;
+   padding-bottom: 18px;
+   background-color: white;
+   border: 3px solid rgb(136, 136, 136);
+   color: gray;
+   font-weight: bold;
+   border-radius: 5px;
+   cursor: pointer;
+}
+.pagamento_compra_detalhe_frete {
+   margin-top: 15px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.compra_pagamento{
+   width: 90%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: yellow;
+   color: #3d3d3d;
+   padding-top: 18px;
+   padding-bottom: 18px;
+   font-size: 18px;
+   font-weight: bold;
+   border-radius: 5px;
+   border: 1px solid rgb(200, 200, 1);
+   cursor: pointer;
+   user-select: none;
+}
+.compra_pagamento text {
+   margin-left: 5px;
+}
+.icone_sacola_compra {
+   margin-right: 5px;
+}
+.detalhe_pagamento{
+   width: 90%;
+   display: flex;
+   font-size: 12px;
+   background-color: #3d3d3d;
+   justify-content: space-around;
+   align-items: center;
+   margin-top: 15px;
+   border-radius: 5px;
+   padding: 2px;
+}
+.coin_pagamento_detalhe {
+   color: #9C9C07;
+   width: 18px;
+   height: 18px;
+}
+.detalhe_pagamento p {
+   color: white;
+}
+.detalhe_pagamento text {
+   color: #9C9C07;
+}
+.frete_pagamento{
+   width: 90%;
+   padding-top: 18px;
+   padding-bottom: 18px;
+   background-color: white;
+   border: 3px solid rgb(136, 136, 136);
+   color: gray;
+   border-radius: 5px;
+   cursor: pointer;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   margin-top: 50px;
+   margin-bottom: 10px;
+}
+.icon_truck_frete {
+   font-size: 35px;
+}
+.frete_pagamento text {
+   font-size: 12px;
+}
+
 
 /*DETALHES PRODUTO - fim*/
 

@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/usuario.css"
 
 export default function Usuarios() {
   return (

@@ -71,14 +71,20 @@
 
 .div_produtos_maisVendido {
    width: 100%;
-   height: 550px;
    display: flex;
    justify-content: center;
+   align-items: center;
+   margin-bottom: 100px;
 }
 .produtos_maisVendido {
    width: 85%;
-   height: 500px;
-   background-color: aqua;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+.produtos_maisVendido div {
+   display: flex;
+   flex-wrap: wrap;
 }
 /*PRODUTOS MAIS VENDIDOS - fim*/
 
@@ -259,3 +265,170 @@
    opacity: 1;
 }
 /*DEPOIMENTOS - fim*/
+
+
+/*MODAL*/
+
+/*Caixa de Informações*/
+
+.modal-login_container {
+   position: absolute;
+   width: 100%;
+   height: 100vh;
+   z-index: 5;
+   top:0%;
+   display: flex;
+   justify-content: center;
+   backdrop-filter: blur(10px);
+}
+.caixa_de_informacoes {
+   background-color: #3D3D3D;
+   height: 510px;
+   width: 600px;
+   border-radius: 16px;
+   display: flex;
+   margin-top: 212px;
+   margin-bottom: 212px;
+   color: white;
+   flex-direction: column;
+   align-items: center;
+}
+
+.informe_seus_dados {
+   font-size: large;
+   margin-bottom: 35px;
+   margin-top: 25px;
+}
+
+.caixa_icone_fechr {
+   margin-top: 200px;
+   margin-bottom: 200px;
+   display: flex;
+}
+
+.icone_de_fechar {
+   width: 30px;
+   height: 30px;
+   margin-left: 550px;
+   color: white;
+   margin-top: 15px;
+   cursor: pointer;
+}
+
+.icone_de_fechar:hover {
+   color: #FFFF00;
+ }
+
+/*Caixas de Texto*/
+.caixas_de_textos_gerais {
+   background-color: #3D3D3D;
+   height: 200px;
+   width: 600px;
+   justify-content: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.caixa_de_texto_usuario {
+   box-shadow: 0px 3px 0px 0px white;
+   width: 70%;
+   height: 40px;
+   display: flex;
+   flex-direction: row;
+   gap:25px;
+   color: #898987;
+}
+
+.caixa_de_texto_senha {
+   box-shadow: 0px 3px 0px 0px white;
+   width: 70%;
+   height: 40px;
+   display: flex;
+   flex-direction: row;
+   gap:25px;
+   color: #898987;
+}
+
+.digite_aqui {
+   font-size: 16px;
+   margin-top: 10px;
+   background-color: #3D3D3D;
+   color: #898987;
+   width: 100%;
+   border: none;
+   outline: 0;
+   margin-top: 1px;
+}
+
+.icone_usuario {
+   height: 26px;
+   width: 26px;
+}
+
+.icone_senha {
+   height: 30px;
+   width: 30px;
+   margin-top: 4px;
+}
+
+.icone_olho {
+   height: 30px;
+   width: 30px;
+   margin-top: 4px;
+   cursor: pointer;
+}
+
+.icone_olho:hover {
+   height: 30px;
+   width: 30px;
+   margin-top: 4px;
+   color:#FFFF00;
+}
+
+/*Botão de Continuar*/
+.botao_continuar_definitivo {
+   background-color: #3D3D3D;
+   border: #FFFF00 5px solid;
+   color: #FFFF00;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 3px;
+   width: 60%;
+}
+
+.texto_do_botao {
+   font-weight: bold;
+}
+
+/*Pergunta de Cadastro*/
+.pergunta_cadastrar {
+   color: white;
+   font-size: 12px;
+   flex-direction: row;
+   display: flex;
+   gap: 5px;
+   margin-right: 195px;
+}
+
+.cadastrar_se {
+   font-weight: bold;
+   color: white;
+   text-decoration: none;;
+}
+
+.cadastrar_se:hover {
+   font-weight: bold;
+   color: #FFFF00;
+}
+
+/*MODAL - fim*/
+
+.no-scroll {
+   overflow: hidden;
+}
