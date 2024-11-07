@@ -18,12 +18,13 @@ import HistoricoVendas from "./pages/HistoricoVendas";
 import Usuarios from "./pages/Usuarios";
 
 import ProdutoH from "./components/ProdutoH"
+import Compra from "./components/Compra";
 
 export default function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <ProdutoH />
+        <Perfil />
       </div>
     </AuthProvider>
   );

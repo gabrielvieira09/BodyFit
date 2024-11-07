@@ -1,0 +1,210 @@
+.carrinho_container_main {
+   height: calc(100vh - 173px);
+   display: flex;
+}
+/*PRODUTOSH CARRINHO*/
+.carrinho_produtos_main {
+   width: 70%;
+   height: 100%;
+}
+.container_title_carrinho {
+   width: 100%;
+   height: 75px;
+   display: flex;
+   align-items: end;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+.container_title_carrinho div {
+   width: 85%;
+   padding-left: 30px;
+   padding-bottom: 10px;
+   border-bottom:3px solid black ;
+}
+.carrinho_produtos {
+   width: 100%;
+   height: 82%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow-y: scroll;
+}
+/*PRODUTOSH CARRINHO - fim*/
+
+/*PEDIDO CARRINHO*/
+.carrinho_pedido_main {
+   width: 30%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.pedido_container{
+   width: 80%;
+   border: 3px solid rgb(189, 189, 189);
+   border-radius: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.pedido_title {
+   width: 100%;
+   border-bottom: 3px solid rgb(189, 189, 189);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.pedido_title div {
+   font-size: 15px;
+   padding: 15px;
+}
+.pedido_produtosSeleicionados {
+   width: 100%;
+   border-bottom: 3px solid rgb(189, 189, 189);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.pedido_produtosSeleicionados div {
+   display: flex;
+   align-items: center;
+   width: 85%;
+   justify-content: space-between;
+   flex-direction: row;
+   font-size: 15px;
+   padding: 15px;
+}
+.pedido_produtosSeleicionados h3 {
+   font-weight: 600;
+}
+.pedido_produtosEntrega {
+   width: 100%;
+   border-bottom: 3px solid rgb(189, 189, 189);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.pedido_produtosEntrega div {
+   display: flex;
+   align-items: center;
+   width: 85%;
+   justify-content: space-between;
+   flex-direction: row;
+   font-size: 15px;
+   padding: 15px;
+}
+.pedido_produtosEntrega h3 {
+   font-weight: 600;
+}
+.pedido_total_div {
+   width: 100%;
+   border-bottom: 3px solid rgb(189, 189, 189);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.pedido_total {
+   display: flex;
+   align-items: center; 
+   width: 85%;
+   justify-content: space-between;
+   flex-direction: row;
+   font-size: 15px;
+   padding: 15px;
+}
+.pedido_total text {
+   font-weight: bold;
+   font-size: 18px;
+}
+.total_descriptio_pedido {
+   width: 80%;
+   font-size: 12px;
+   padding: 15px;
+   margin-left: 40px;
+}
+.pedido_pagamento_compra_frete {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.pedido_pagamento_compra {
+   width: 80%;
+}
+.pedido_pagamento_compra select {
+   width: 100%;
+   height: 30px;
+   border-radius: 5px;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   padding-left: 5px;
+   outline: 0;
+   cursor: pointer;
+}
+.pedido_pagamento_compra div {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+}
+.pedido_adicionar_produto {
+   width: 48%;
+   background-color: rgb(179, 179, 179);
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   cursor: pointer;
+}
+.pedido_adicionar_produto button {
+   font-size: 10px;
+   background-color: rgb(179, 179, 179);
+   border:none;
+   cursor: pointer;
+}
+.pedido_limparCache {
+   width: 48%;
+   height: 40px;
+   font-size: 10px;
+   border: 1px solid black;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 5px;
+   cursor: pointer;
+}
+.pedido_finalizarPedido {
+   width: 100%;
+   margin-top: 10px;
+   height: 50px;
+   background-color: yellow;
+   border: 1px solid black;
+   font-size: 20px;
+   border-radius: 5px;
+   cursor: pointer;
+   font-weight: bold;
+}
+.pedido_frete_text {
+   display: flex;
+   width: 80%;
+   margin-top: 20px;
+   margin-bottom: 10px;
+   align-items: center;
+   justify-content: space-between;
+}
+.pedido_icon_truck_frete {
+   color: #C7B30A;
+   font-size: 30px;
+}
+.pedido_frete_text text {
+   font-size: 10px;
+   color: #C7B30A;
+}
+.pedido_text_fim {
+   width: 80%;
+}
+/*PEDIDO CARRINHO - fim*/

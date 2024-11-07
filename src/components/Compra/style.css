@@ -1,0 +1,28 @@
+.compra_container {
+   width: 100%;
+   display: flex;
+}
+.compra_container img {
+   padding: 10px;
+}
+.compra_descricao {
+   width: 55%;
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   justify-content: space-between;
+}
+.compra_detalhes {
+   width: 30%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.compra_detalhes button {
+   width: 80%;
+   height: 35px;
+   background-color: yellow;
+   font-weight: bold;
+   border: 1px solid black;
+   border-radius: 10px;
+}

@@ -1,0 +1,187 @@
+.perfil_main {
+   height: calc(100vh - 173px);
+}
+/*NOME PERFIL*/
+.perfil_name {
+   width: 100%;
+   height: 75px;
+   display: flex;
+   align-items: center;
+   padding-left: 30px;
+   font-size: 22px;
+}
+.perfil_name text {
+   margin-left: 10px;
+   font-size: 20px;
+   color: rgb(135, 135, 135);
+}
+/*NOME PERFIL - fim*/
+
+/*PERFIL COMPONENTES*/
+.perfil_components {
+   width: 100%;
+   display: flex;
+}
+
+/*PERFIL OPÇÕES*/
+
+.perfil_options {
+   width: 40%;
+   display: flex;
+   flex-direction: column;
+   padding-left: 30px;
+   padding-top: 50px;
+}
+.perfil_options button {
+   width: 60%;
+   height: 75px;
+   font-weight: bold;
+   font-size: 18px;
+   display: flex;
+   align-items: center;
+   padding-left: 25px;
+   justify-content: first baseline;
+   background-color: transparent;
+   border:none;
+   cursor: pointer;
+}
+
+/*PERFIL OPÇÕES - fim*/
+/*PERFIL DADOS*/
+
+.perfil_dados {
+   width: 60%;
+   display: none;
+}
+.perfil_dados_text {
+   width: 100%;
+   height: 50px;
+   display: flex;
+   align-items: center;
+}
+.perfil_dados_text text {
+   font-size: 35px;
+   font-weight: bold;
+   color: #1f1f1f;
+}
+.dadosPessoais_perfil {
+   width: 80%;
+   border: 3px solid gray;
+   border-radius: 15px;
+   display: flex;
+   flex-direction: column;
+   padding-top: 10px;
+}
+.block_perfil {
+   width: 100%;
+   padding-left: 5%;
+   margin-top: 10px;
+   display: flex;
+   flex-direction: row;
+}
+.componente_cadastro_perfil {
+   display: flex;
+   flex-direction: column;
+   width: 60%;
+   
+}
+.input_maior_cadastro_perfil {
+   margin-top: 5px;
+   width: 95%;
+   height: 25px;
+   font-size: 15px;
+   padding-left:5px;
+   
+}
+.input_medio_cadastro_perfil {
+   margin-top: 5px;
+   width: 60%;
+   height: 25px;
+   font-size: 20px;
+   padding-left:5px;
+   margin-left: 50px;
+}
+.input_menor_cadastro_perfil {
+   margin-top: 5px;
+   width: 60%;
+   height: 25px;
+   font-size: 20px;
+   padding-left:5px;
+   margin-left: 50px;
+}
+.componente_cadastro_direita_perfil text {
+   margin-left: 50px;
+   display: flex;
+   flex-direction: column;
+}
+.block_menor_perfil {
+   width: 56.5%;
+   padding-left: 5%;
+   margin-top: 25px;
+   display: flex;
+   flex-direction: row;
+}
+.block_final_perfil {
+   width: 95%;
+   padding-left: 5%;
+   margin-top: 25px;
+   display: flex;
+   flex-direction: row;
+   padding-bottom: 20px;
+}
+.input_maior_cadastro_fim_perfil {
+   margin-top: 5px;
+   width: 109%;
+   height: 25px;
+   font-size: 15px;
+   padding-left:5px;
+}
+.componente_cadastro_fim_perfil {
+   display: flex;
+   align-items: end;
+   width: 100%;
+   justify-content: space-between;
+   padding-bottom: 5px;
+}
+.componente_cadastro_fim_perfil button {
+   font-size: 25px;
+   border: none;
+   background-color: transparent;
+   color: #9C9C07;
+   margin-left: 50px;
+   cursor: pointer;
+   font-weight: bold;
+}
+/*PERFIL DADOS - fim*/
+/*PERFIL HISTÓRICO*/
+
+.perfil_historico {
+   width: 60%;
+   height: 60%;
+}
+.perfil_historico_text {
+   width: 100%;
+   height: 50px;
+   display: flex;
+   align-items: center;
+}
+.perfil_historico_text text {
+   font-size: 35px;
+   font-weight: bold;
+   color: #1f1f1f;
+}
+.perfil_historico_scroll {
+   width: 90%;
+   overflow-y: scroll;
+}
+.perfil_historico_compra {
+   width: 95%;
+   border: 3px solid gray;
+   border-radius: 15px;
+}
+.div_compra {
+   width: 100%;
+   border-bottom: 3px solid gray;
+}
+/*PERFIL HISTÓRICO - fim*/
+/*PERFIL COMPONENTES - fim*/

@@ -4,3 +4,16 @@
    box-sizing: border-box;
    font-family: "Inter", sans-serif;
 }
+body::-webkit-scrollbar {
+   width: 12px;               /* width of the entire scrollbar */
+ }
+ 
+ body::-webkit-scrollbar-track {
+   background: #3d3d3d;        /* color of the tracking area */
+ }
+ 
+ body::-webkit-scrollbar-thumb {
+   background-color: #9a9a9a;    /* color of the scroll thumb */
+   border-radius: 20px;       /* roundness of the scroll thumb */
+   border: 3px solid #3d3d3d;  /* creates padding around scroll thumb */
+ }
