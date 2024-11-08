@@ -27,7 +27,7 @@ export default function Footer() {
             <text className="footer_superior_negrito">Email:</text>
             <text> bodyfit023@gmail.com</text><br/><br/>
 
-            <a id="footer_superior_link" href="#">Desenvolvedores do SITE</a>
+            <a id="footer_superior_link" href="/desenvolvedores">Desenvolvedores do SITE</a>
          </div>
          <div className="footer_superior_redes">
             <div className="footer_superior_redes_div">

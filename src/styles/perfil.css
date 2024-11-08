@@ -21,6 +21,7 @@
 .perfil_components {
    width: 100%;
    display: flex;
+   height: calc(100% - 75px);
 }
 
 /*PERFIL OPÇÕES*/
@@ -45,13 +46,30 @@
    border:none;
    cursor: pointer;
 }
+.perfil_options_button:hover {
+   background-color: rgb(252, 252, 252);
+   color: #9C9C07;
+   border-left: 5px solid #9C9C07;
+}
+.active {
+   color: #9C9C07;
+   border-left: 5px solid #9C9C07 !important ;
+}
+.active:hover {
+   background-color: transparent;
+}
+.perfil_options_button_sair:hover {
+   background-color: rgb(252, 252, 252);
+   color: #ff0000;
+   border-left: 5px solid #ff0000;
+}
+
 
 /*PERFIL OPÇÕES - fim*/
 /*PERFIL DADOS*/
 
 .perfil_dados {
    width: 60%;
-   display: none;
 }
 .perfil_dados_text {
    width: 100%;
@@ -156,8 +174,8 @@
 /*PERFIL HISTÓRICO*/
 
 .perfil_historico {
-   width: 60%;
-   height: 60%;
+   width: 55%;
+   overflow-y: auto;
 }
 .perfil_historico_text {
    width: 100%;
@@ -172,7 +190,6 @@
 }
 .perfil_historico_scroll {
    width: 90%;
-   overflow-y: scroll;
 }
 .perfil_historico_compra {
    width: 95%;

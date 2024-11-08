@@ -117,6 +117,14 @@
 .search_usuario_person:hover {
    text-decoration: underline;
 }
+.search_usuario_person a {
+   text-decoration: none;
+   color: white;
+   margin-bottom: 6px;
+}
+.search_usuario_carrinho a {
+   color: white;
+}
 #compra {
    cursor: pointer;
    font-size: 24px;

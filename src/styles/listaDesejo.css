@@ -1,0 +1,34 @@
+.listaDesejo_main {
+   display: flex;
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
+.listaDesejo_filtragem {
+   display: flex;
+   width: 20%;
+   align-items: center;
+   justify-content: center;
+}
+.listaDesejo_div_filtragem {
+   width: 90%;
+}
+.listaDesejo_produtos {
+   width: 70%;
+}
+.listaDesejo_produtos_text {
+   width: 100%;
+   height: 80px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.listaDesejo_produtos_text div {
+   display: flex;
+   width: 80%;
+   border-bottom: 3px solid black;
+   padding-bottom: 10px;
+}
+.listaDesejo_produtos_text img {
+   width: 75px;
+   height: 40px;
+}

@@ -1,0 +1,100 @@
+datasource db {
+   provider = "sqlite"
+   url      = "file:./dev.db"
+}
+
+generator client {
+   provider = "prisma-client-js"
+}
+
+model User {
+   id           Int            @id @default(autoincrement())
+   nome         String
+   email        String         @unique
+   telefone     String
+   password     String
+   role         String         @default("USER")
+   cpf          String         @unique
+   endereco     Endereco[]
+   carrinho     Carrinho[]
+   pedidos      Pedido[]
+   listaDesejos ListaDesejos[] // Many-to-many relationship
+}
+
+model Endereco {
+   id          Int    @id @default(autoincrement())
+   cep         String
+   cidade      String
+   bairro      String
+   logradouro  String
+   complemento String
+   numero      String
+   userId      Int    @unique
+   user        User   @relation(fields: [userId], references: [id])
+}
+
+model Produto {
+   id           Int             @id @default(autoincrement())
+   nome         String          @unique // Unique product name
+   preco        Float
+   desconto     Int
+   descricao    String
+   estoque      Int
+   marcaId      Int // Foreign key to Marca
+   marca        Marca           @relation(fields: [marcaId], references: [id]) // One-to-many relationship
+   listaDesejos ListaDesejos[]
+   carrinho     Carrinho[]
+   imagens      ImagemProduto[]
+   pedidoItens  PedidoItem[]
+}
+
+model ImagemProduto {
+   id        Int     @id @default(autoincrement())
+   url       String // URL of the image
+   produtoId Int
+   produto   Produto @relation(fields: [produtoId], references: [id])
+}
+
+model Carrinho {
+   id         Int     @id @default(autoincrement())
+   userId     Int
+   produtoId  Int
+   quantidade Int
+   user       User    @relation(fields: [userId], references: [id])
+   produto    Produto @relation(fields: [produtoId], references: [id])
+}
+
+model Pedido {
+   id              Int          @id @default(autoincrement())
+   userId          Int
+   user            User         @relation(fields: [userId], references: [id])
+   total           Float
+   metodoPagamento String
+   enderecoEntrega String
+   data            DateTime     @default(now())
+   itens           PedidoItem[]
+}
+
+model PedidoItem {
+   id         Int     @id @default(autoincrement())
+   produtoId  Int
+   produto    Produto @relation(fields: [produtoId], references: [id])
+   quantidade Int
+   preco      Float
+   pedidoId   Int
+   pedido     Pedido  @relation(fields: [pedidoId], references: [id])
+}
+
+model ListaDesejos {
+   id        Int     @id @default(autoincrement())
+   userId    Int
+   produtoId Int
+   user      User    @relation(fields: [userId], references: [id])
+   produto   Produto @relation(fields: [produtoId], references: [id])
+}
+
+model Marca {
+   id       Int       @id @default(autoincrement())
+   nome     String    @unique // Ensure unique brand names
+   produtos Produto[] // One-to-many relationship (one Marca can have many Produtos)
+}

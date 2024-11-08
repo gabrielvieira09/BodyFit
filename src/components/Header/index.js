@@ -69,13 +69,15 @@ export default function Header() {
                <div className="search_usuario">
                   <div className="search_usuario_person">
                      <FaRegHeart />
-                     <text>Lista de desejos</text>
+                     <a href="/listadesejo"><text>Lista de desejos</text></a>
                   </div>
                   <div className="search_usuario_person">
                      <IoMdPerson />
                      <text onClick={openModal}>Entrar</text> 
                   </div>
-                  <PiShoppingCartSimpleBold id="compra" />
+                  <div className="search_usuario_carrinho">
+                     <a href="/carrinho"><PiShoppingCartSimpleBold id="compra" /></a>
+                  </div>
                </div>
             </div>
             <div className="header_inferior_navigation_baixo">

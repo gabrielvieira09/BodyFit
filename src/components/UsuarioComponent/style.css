@@ -1,0 +1,51 @@
+.usuarioComponent_container {
+   width: 35%;
+   display: flex;
+}
+.usuarioComponent_image {
+   width: 15%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.usuarioComponent_image img {
+   width: 65px;
+   margin: 10px;
+   margin-top: 3px;
+}
+.usuarioComponent_name {
+   width: 60%;
+}
+.usuarioComponent_name div {
+   margin-top: 12px;
+   margin-left: 5px;
+}
+.usuarioComponent_name text {
+   font-size: 13;
+}
+.usuarioComponent_opcoes {
+   width: 25%;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: space-evenly;
+}
+.usuarioComponent_opcoes button {
+   font-size: 18px;
+   border: none;
+   background-color: transparent;
+   font-weight: bold;
+   cursor: pointer;
+}
+.usuarioComponent_opcoes_editar {
+   color: #9C9C07;
+}
+.usuarioComponent_opcoes_editar:hover {
+   color: #b5b516;
+} 
+.usuarioComponent_opcoes_remover {
+   color: #3d3d3d;
+}
+.usuarioComponent_opcoes_remover:hover {
+   color: #646464;
+}

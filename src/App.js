@@ -19,12 +19,13 @@ import Usuarios from "./pages/Usuarios";
 
 import ProdutoH from "./components/ProdutoH"
 import Compra from "./components/Compra";
+import UsuarioComponent from "./components/UsuarioComponent";
 
 export default function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Perfil />
+        <UsuarioComponent />
       </div>
     </AuthProvider>
   );
