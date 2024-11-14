@@ -1,6 +1,5 @@
 .header_container {
    width: 100%;
-   height: 173px;
    user-select: none;
 }
 
@@ -31,6 +30,11 @@
    color: white;
    font-size: 12px;
 } 
+@media screen and (max-width:1400px) {
+   .header_superior_div text {
+      font-size: 10px;
+   }
+}
 /* HEADER SUPERIOR - FIM */
 
 /* HEADER INFERIOR */
@@ -42,11 +46,12 @@
 }
 .header_inferior_logo {
    width: 20%;
-   height: 120px;
    display: flex;
    align-items: center;
    justify-content: center;
-   cursor: pointer;
+}
+.header_inferior_logo button {
+   display: none;
 }
 .header_inferior_logo img {
    width: 90%;
@@ -96,6 +101,9 @@
    font-size: 22px;
    margin-left: 12px
 }
+.header_inferior_input-mobile {
+   display: none;
+}
 .search_usuario {
    width: 50%;
    height: 60px;
@@ -120,7 +128,9 @@
 .search_usuario_person a {
    text-decoration: none;
    color: white;
-   margin-bottom: 6px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .search_usuario_carrinho a {
    color: white;
@@ -156,3 +166,150 @@
 
 /* HEADER INFERIOR - FIM */
 
+@media screen and (max-width:1200px) { 
+   #icone3 {
+      display: none;
+   }
+   .header_inferior_logo img {
+      width: 100%;
+      height: 80px;
+   }
+   .search_usuario_person text {
+      display: none;
+   }
+   .header_inferior_navigation_baixo {
+      width: 100%;
+   }
+   .divs_nav_individual {
+      font-size: 15px;
+      margin-left: 8px;
+      margin-right: 10px;
+   }
+   #lupa {
+      font-size: 22px;
+      margin-left: 0px
+   }
+}
+@media screen and (max-width:1020px) { 
+   #icone1 {
+      display: none;
+   }
+}
+@media screen and (max-width:870px) { 
+   #icone4 {
+      display: none;
+   }
+   .header_container {
+      background-color: #3d3d3d;
+   }
+   .header_inferior {
+      height: 35%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .header_inferior logo {
+      height: 100%;
+   }
+   .header_inferior_navigation {
+      height: 35%;
+   }
+   .header_inferior_navigation_baixo {
+      display: none;
+   }
+   .navigation_cima_search {
+      display: none;
+   }
+   .header_inferior_logo {
+      height: 50%;
+   }
+   .header_inferior_logo {
+      width: 35%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+   }
+   .header_inferior_logo img {
+      width: 90%;
+      height: 35%;
+   }
+   .header_inferior_logo a {
+      width: 50%;
+   }
+   #aba_menu-mobile {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      color: white;
+   }
+   .header_inferior_logo button {
+      display: block;
+      width: 7.5%;
+      height: 7.5%;
+      background-color: transparent;
+      border: none;
+   }
+
+   .header_inferior_logo {
+      width: 100% !important;
+      height: 100% !important;
+   }
+
+   .header_inferior_logo img {
+      width: 100px;
+      height: 40px !important;
+   }
+
+   .header_inferior_input-mobile {
+      display: block;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .search {
+      width: 70%;
+      margin-left: 0px;
+      margin-bottom: 20px;
+   }
+   .header_inferior_navigation {
+      width: 50%;
+   }
+   .search_usuario {
+      width: 100%;
+   }
+   .input_header {
+      width: 95%;
+   }
+   #lupa {
+      margin-right: 10px;
+   }
+}
+@media screen and (max-width:600px) { 
+   .header_superior {
+      display: none;
+   }
+   .search {
+      width: 95%;
+      margin-left: 0px;
+   }
+   #lupa {
+      margin-right: 10px;
+   }
+   .header_inferior {
+      height: 35%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+   .header_inferior logo {
+      height: 60px;
+      height: 100%;
+   }
+}
+@media screen and (max-width:400px) {  
+   .header_inferior_logo button {
+      display: block;
+      width: 12%;
+      height: 12%;
+   }
+}

@@ -37,7 +37,7 @@ model Produto {
    id           Int             @id @default(autoincrement())
    nome         String          @unique // Unique product name
    preco        Float
-   desconto     Int
+   desconto     String
    descricao    String
    estoque      Int
    marcaId      Int // Foreign key to Marca

@@ -1,26 +1,43 @@
 import prisma from "./prismaClient.js";
 
 export const criarProduto = async (data) => {
-  const { nome, preco, estoque, descricao, visibilidade, imagens, marcaId } = data;
+   const { nome, preco, estoque, descricao, desconto, imagens, marcaId } = data;
 
-  return await prisma.produto.create({
-    data: {
-      nome,
-      preco: parseFloat(preco),
-      estoque: parseInt(estoque),
-      descricao,
-      marcaId,
-      visibilidade: visibilidade !== undefined ? visibilidade : true, // Define a visibilidade do produto
-      imagens: {
-        create: imagens.map((imagem) => ({ url: imagem })), // Cria uma entrada para cada imagem
-      },
-    },
-  });
-};
+   console.log(data);
+   
+ 
+   // Verificar se a marca existe com o campo 'id' corretamente convertido para inteiro
+   const marcaExistente = await prisma.marca.findUnique({
+     where: {
+       id: parseInt(marcaId), // Passa o marcaId convertido para inteiro
+     },
+   });
+ 
+   // Se a marca não for encontrada, lançar erro
+   if (!marcaExistente) {
+     throw new Error("Marca não encontrada. Não é possível criar o produto sem uma marca válida.");
+   }
+ 
+   // Criar o produto associado à marca existente
+   return await prisma.produto.create({
+     data: {
+       nome,
+       preco: parseFloat(preco),
+       estoque: parseInt(estoque),
+       desconto,
+       descricao,
+       marcaId: parseInt(marcaId), // Conectar com a marca existente
+       imagens: {
+         create: imagens.map((imagem) => ({ url: imagem })), // Cria uma entrada para cada imagem
+       },
+     },
+   });
+ };
+ 
+ 
 
-export const listarProdutos = async (isAdmin = false) => {
+export const listarProdutos = async () => {
   const produtos = await prisma.produto.findMany({
-    where: isAdmin ? {} : { visibilidade: true }, // Filtra apenas produtos visíveis para usuários comuns
     include: { imagens: true },
   });
 
@@ -45,11 +62,6 @@ export const obterProdutoPorId = async (produtoId, isAdmin = false) => {
     include: { imagens: true },
   });
 
-  // Verifica se o produto é visível para usuários comuns
-  if (!produto || (!isAdmin && produto.visibilidade === false)) {
-    return null; // Retorna null se o produto não for encontrado ou não for visível para o usuário comum
-  }
-
   // Formata a URL das imagens
   const imagensFormatadas = produto.imagens.map((imagem) => {
     return `${process.env.BASE_URL}/${imagem.url.replace(/\\/g, "/")}`;
@@ -62,9 +74,8 @@ export const obterProdutoPorId = async (produtoId, isAdmin = false) => {
 };
 
 export const atualizarProduto = async (produtoId, data) => {
-  const { nome, preco, estoque, descricao, visibilidade, desconto, imagens, marcaId } = data;
+  const { nome, preco, estoque, descricao, desconto, imagens, marcaId } = data;
 
-  const visibilidadeBoolean = visibilidade === "true"; // Converte para booleano
 
   let updateData = {
     nome,
@@ -73,7 +84,6 @@ export const atualizarProduto = async (produtoId, data) => {
     descricao,
     marcaId,
     desconto,
-    visibilidade: visibilidadeBoolean, // Usa o valor booleano correto
   };
 
   if (imagens && imagens.length > 0) {

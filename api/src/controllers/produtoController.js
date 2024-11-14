@@ -7,27 +7,27 @@ import {
 } from "../services/produtoService.js";
 
 // Controller para criar um novo produto com imagem
-// Controller para criar um novo produto com imagem e visibilidade
 export const criarProdutoController = async (req, res) => {
-  const { nome, preco, estoque, descricao,desconto, visibilidade } = req.body;
-  const imagens = req.files ? req.files.map((file) => file.path) : [];
-
-  try {
-    // Chama o serviço para criar o produto com o campo de visibilidade
-    const produto = await criarProduto({
-      nome,
-      preco: parseFloat(preco),
-      estoque: parseInt(estoque),
-      descricao,
-      desconto,
-      visibilidade: visibilidade !== undefined ? visibilidade : true, // Adiciona o campo de visibilidade com default true
-      imagens,
-    });
-    res.status(201).json(produto);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
+   const { nome, preco, estoque, descricao, desconto, marcaId } = req.body;
+   const imagens = req.files ? req.files.map((file) => file.path) : [];
+ console.log('controller', marcaId);
+ 
+   try {
+     const produto = await criarProduto({
+       nome,
+       preco: parseFloat(preco),
+       estoque: parseInt(estoque),
+       descricao,
+       desconto,
+       marcaId, // Certifique-se de que o marcaId seja fornecido
+       imagens,
+     });
+     res.status(201).json(produto);
+   } catch (error) {
+     res.status(400).json({ error: error.message });
+   }
+ };
+ 
 
 export const obterProdutos = async (req, res) => {
   try {
@@ -65,7 +65,7 @@ export const obterProduto = async (req, res) => {
 
 export const editarProduto = async (req, res) => {
   const { produtoId } = req.params;
-  const { nome, preco, estoque, descricao, visibilidade,desconto } = req.body;
+  const { nome, preco, estoque, descricao,desconto } = req.body;
   const imagens = req.files ? req.files.map((file) => file.path) : []; // Pega os arquivos de imagem enviados
 
   const dadosAtualizados = {
@@ -74,7 +74,6 @@ export const editarProduto = async (req, res) => {
     estoque: parseInt(estoque),
     descricao,
     desconto,
-    visibilidade: visibilidade !== undefined ? visibilidade : true, // Adiciona a visibilidade à atualização
     imagens,
   };
 

@@ -27,17 +27,18 @@ export const obterMarcaPorId = async (marcaId) => {
 };
 
 export const atualizarMarca = async (marcaId, data) => {
-  const { nome } = data;
-
-  let updateData = {
-    nome,
-  };
-
-  return await prisma.marca.update({
-    where: { id: marcaId },
-    data: updateData,
-  });
-};
+   const { nome } = data;
+ 
+   let updateData = {
+     nome,
+   };
+ 
+   return await prisma.marca.update({
+     where: { id: parseInt(marcaId) },  // Certifique-se de que o ID seja um número
+     data: updateData,
+   });
+ };
+ 
 
 export const deletarMarca = async (marcaId) => {
  

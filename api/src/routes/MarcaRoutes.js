@@ -1,11 +1,9 @@
 import express from "express";
 
 import {
-  criarMarcaController,
-  obterMarcas,
-  obterMarca,
-  editarMarca,
-  removerMarca,
+   createMarcaController,
+   updateMarcaController,
+  deleteMarcaController, getMarca, getMarcas
 } from "../controllers/marcaController.js";
 
 import {
@@ -17,24 +15,24 @@ import {
 const router = express.Router();
 
 // Rota pública para listar todos os marcas
-router.get("/marcas", verificarTokenOpcional, obterMarcas);
+router.get("/marcas", getMarcas);
 
 // Rota pública para obter um marca específico por ID
-router.get("/marcas/:marcaId", verificarTokenOpcional, obterMarca);
+router.get("/marcas/:marcaId", getMarca);
 
 // Rota para cadastrar um novo marca (Admin Only)
 router.post(
   "/marcas",
   verificarToken,
   verificarAdmin,
-  criarMarcaController
+  createMarcaController
 );
 
 router.put(
   "/marcas/:marcaId",
   verificarToken,
   verificarAdmin,
-  editarMarca
+  updateMarcaController
 );
 
 // Rota para remover um marca (Admin Only)
@@ -42,7 +40,7 @@ router.delete(
   "/marcas/:marcaId",
   verificarToken,
   verificarAdmin,
-  removerMarca
+  deleteMarcaController
 );
 
 export default router;

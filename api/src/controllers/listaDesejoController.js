@@ -1,7 +1,6 @@
 import {
   adicionarItemAoListaDesejo,
   listarItensDoListaDesejo,
-  editarItemDoListaDesejo,
   excluirItemDoListaDesejo,
 } from "../services/listaDesejoService.js";
 
