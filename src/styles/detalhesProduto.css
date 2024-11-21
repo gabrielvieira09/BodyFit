@@ -121,12 +121,26 @@
    padding-bottom: 18px;
    border-radius: 5px;
 }
-.carrinho_pagamento {
+.quantidade_carrinho_pagamento {
    width: 100%;
    display: flex;
    justify-content: center;
+   align-items: center;
+   flex-direction: column;
 }
-.carrinho_pagamento button {
+.quantidade_pagamento {
+   width: 75%;
+   padding: 15px;
+   display: flex;
+   justify-content: space-around;
+}
+.quantidade_pagamento input {
+   width: 50%;
+   padding-left: 5px;
+   font-size: 15px;
+   font-weight: bold;
+}
+.quantidade_carrinho_pagamento button {
    width: 90%;
    padding-top: 18px;
    padding-bottom: 18px;

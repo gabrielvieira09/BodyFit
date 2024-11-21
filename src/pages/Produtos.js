@@ -3,6 +3,7 @@ import "../styles/produtos.css"
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import banner from "../assets/banners/banner(produtos).png"
+import ProdutosV from "../components/ProdutoV";
 
 export default function Produtos() {
   return (
@@ -113,7 +114,16 @@ export default function Produtos() {
                <button>Buscar</button>   
             </div>   
          </div>   
-         <div></div>   
+         <div className="div_todosProdutos">
+            <ProdutosV/>
+            <ProdutosV/>
+            <ProdutosV/>
+            <ProdutosV/>
+            <ProdutosV/>
+            <ProdutosV/>
+            <ProdutosV/>
+            <ProdutosV/>
+         </div>   
       </div> 
       <Footer />
    </div>

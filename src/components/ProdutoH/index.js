@@ -6,7 +6,7 @@ import { FaHeart } from "react-icons/fa";
 import Integralmedica_creatina from "../../assets/produtos/creatina/Integralmedica.png"
 
 
-export default function ProdutosH({image, name, price, discount}){
+export default function ProdutosH({image, name, price, discount, quantidade}){
 
    // Estado para controlar se o coração está favoritado
   const [isFavorited, setIsFavorited] = useState(false);
@@ -42,6 +42,9 @@ export default function ProdutosH({image, name, price, discount}){
                   </div>
                   <div className="ProdutosH_values_discount">
                      <text>Com  desconto a vista ou em {discount}x no cartão </text>
+                  </div>
+                  <div className="ProdutosH_quantidade">
+                     <text>Quantidade: {quantidade}</text>
                   </div>
                </div>
                <div className="ProdutosH_remover">

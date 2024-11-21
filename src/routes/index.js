@@ -13,7 +13,9 @@ import DetalhesProduto from "../pages/DetalhesProduto";
 //import ListaDesejo from "./pages/ListaDesejo"
 import HistoricoVendas from "../pages/HistoricoVendas";
 import Usuarios from "../pages/Usuarios";
-
+import ProdutosAdmin from "../pages/ProdutosAdmin";
+import AdicionarProduto from "../pages/AdicionarProduto";
+import EditarProduto from "../pages/EditarProduto";
 
 export default function AppRoutes() {
   return (
@@ -37,8 +39,9 @@ export default function AppRoutes() {
         {/* Rotas protegidas de admin (apenas administradores) */}
 
         <Route element={<AdminRoutes />}>
-          {/* <Route path="/admin/produto" element={<AdicionarProduto />} /> */}
-          {/* <Route path="/admin/produto/:id" element={<EditarProduto />} /> */}
+         <Route path="/admin/produtos-admin" element={<ProdutosAdmin />} />
+         <Route path="/admin/adicionar-produto" element={<AdicionarProduto />} />
+          <Route path="/admin/editar-produto/:id" element={<EditarProduto />} />
           <Route path="/admin/historico-vendas" element={<HistoricoVendas />} />
           <Route path="/admin/usuarios" element={<Usuarios />} />
         </Route>

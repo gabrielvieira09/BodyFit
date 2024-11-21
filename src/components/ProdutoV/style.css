@@ -10,17 +10,27 @@
    display: flex;
    flex-direction: column;
    margin-top: 10px;
+   border-radius: 5px;
 }
 .ProdutosV_component:hover {
    box-shadow: 0 0 0.5rem rgb(184, 184, 184);
 }
 .ProdutosV_heart {
    width: 100%;
+   display: flex;
+   justify-content: space-between;
 }
 .ProdutosV_heart div {
    width: 20px;
    height: 20px;
    margin: 10px;
+}
+.ProdutosV_heart a {
+   width: 20px;
+   height: 20px;
+   margin: 10px;
+   color: black;
+   cursor: pointer;
 }
 .heart_icon_ProdutosV-notFavorite {
    width: 20px;
@@ -33,6 +43,10 @@
    width: 20px;
    height: 20px;
    cursor: pointer;
+}
+.pencil {
+   width: 20px;
+   height: 20px;
 }
 
 .ProdutosV_image {

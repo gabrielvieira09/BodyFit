@@ -92,12 +92,13 @@
 .produtos_main {
    margin-top: 80px;
    width: 100%;
+   display: flex;
 }
 
 /*FILTRAGEM*/
 .div_filtragem {
    padding-left: 20px ;
-   width: 22.5%;
+   width: 20%;
    height: 100%;
    padding-bottom: 20px;
    overflow-y: auto;
@@ -155,5 +156,39 @@
    cursor: pointer;
 }
 /*FILTRAGEM - fim*/
+
+/*MOSTRAGEM DOS PRODUTOS*/
+
+.div_todosProdutos {
+   width: 80%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+/*CRIAR PRODUTO ADMIN*/
+.div_criarProduto {
+   user-select: none;
+   width: 280px;
+   margin: 10px;
+   display: flex;
+   flex-direction: column;
+   margin-top: 10px;
+   border-radius: 5px;
+   border: 3px solid rgb(214, 214, 214);
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.div_criarProduto:hover {
+   border: 3px solid rgb(147, 147, 147);
+}
+.div_criarProduto img {
+   width: 40%;
+}
+/*CRIAR PRODUTO ADMIN - fim*/
+
+/*MOSTRAGEM DOS PRODUTOS - fim*/
 
 /*PRODUTOS MAIN - fim*/

@@ -65,7 +65,11 @@ export default function DetalhesProduto() {
                         <text>Quantidade Estoque:</text>
                         <h5>23</h5>
                      </div>
-                     <div className="carrinho_pagamento">
+                     <div className="quantidade_carrinho_pagamento">
+                        <div className="quantidade_pagamento">
+                           <text>Quantidade:</text>
+                           <input type="number"></input>
+                        </div>
                         <button>ADICIONAR AO CARRINHO</button>
                      </div>
                   </div>

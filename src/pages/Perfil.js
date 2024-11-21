@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Compra from "../components/Compra";
 import { AuthContext } from "../contexts/AuthContext"; // Importe o AuthContext
 import api from "../services/api"; // Assumindo que você tenha um arquivo de serviços API
+import { useNavigate } from "react-router-dom";
 
 export default function Perfil() {
   const [formData, setFormData] = useState({
@@ -23,8 +24,10 @@ export default function Perfil() {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [disabled, setDisabled] = useState(true);
-  const { user, loading } = useContext(AuthContext); // Acesso ao contexto do usuário
+  const { user, loading, logout } = useContext(AuthContext); // Acesso ao contexto do usuário
   const [activeSection, setActiveSection] = useState("dadosPessoais");
+  const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado para controle da modal
+  const navigate = useNavigate();
 
   // Carrega os dados do perfil
   useEffect(() => {
@@ -90,11 +93,27 @@ export default function Perfil() {
     setDisabled(false);
   };
 
+  // Função para mostrar a modal de logout
+  const handleLogoutModal = () => {
+    setShowLogoutModal(true);
+  };
+
+  // Função para lidar com o logout
+  const handleLogout = () => {
+    logout(); // Desloga o usuário
+    navigate("/"); // Redireciona para a página de login
+    setShowLogoutModal(false); // Fecha a modal
+  };
+
+  // Função para fechar a modal sem fazer logout
+  const handleCloseLogoutModal = () => {
+    setShowLogoutModal(false); // Fecha a modal
+  };
+
   // Verifica se está carregando e retorna antes de continuar com a renderização
   if (loading) {
     return <p>Carregando perfil...</p>;
   }
-
 
   return (
     <div className="perfil_container">
@@ -118,7 +137,9 @@ export default function Perfil() {
             >
               Histórico de compras
             </button>
-            <button className="perfil_options_button_sair">Sair</button>
+            <button className="perfil_options_button_sair" onClick={handleLogoutModal}>
+              Sair
+            </button>
           </div>
           {activeSection === "dadosPessoais" && (
             <div className="perfil_dados">
@@ -290,6 +311,18 @@ export default function Perfil() {
           )}
         </div>
       </div>
+
+      {/* Modal de confirmação de logout */}
+      {showLogoutModal && (
+        <div className="logout_modal">
+          <div className="logout_modal_content">
+            <p>Deseja sair da conta?</p>
+            <button onClick={handleLogout}>Sim</button>
+            <button onClick={handleCloseLogoutModal}>Não</button>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );

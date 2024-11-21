@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 const PrivateRoutes = () => {
-   const { user, loading } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
 
-   if (!loading) {
-      return <p>Carregando...</p>
-   }
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
 
-   return user ? <Outlet /> : <Navigate to="/" />;
+  return user ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default PrivateRoutes;
