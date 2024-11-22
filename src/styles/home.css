@@ -123,15 +123,26 @@
    font-size: 20px;
 }
 .explicacao h2 {
-   margin-left: 150px;
+   margin-left: 120px;
    margin-top: 30px;
-   margin-bottom: 30px;
+   margin-bottom: 50px;
 }
 .expandido {
-   height: 1050px;
+   width: 100%;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
 }
 .text_expandido {
    margin-top: -48px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.text_expandido div {
+   width: 100%;
 }
 .collapsed {
    height: 0px;
@@ -348,6 +359,7 @@
    flex-direction: row;
    gap:25px;
    color: #898987;
+   margin-bottom: 10px;
 }
 
 .digite_aqui {
@@ -387,23 +399,42 @@
 }
 
 /*Botão de Continuar*/
+.botao_continuar_div {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.error-message {
+   color: rgb(255, 27, 27);
+}
+
 .botao_continuar_definitivo {
    background-color: #3D3D3D;
    border: #FFFF00 5px solid;
    color: #FFFF00;
-   padding: 15px 32px;
+   padding: 15px 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    text-align: center;
    text-decoration: none;
    display: inline-block;
    font-size: 16px;
    margin: 4px 2px;
    cursor: pointer;
-   border-radius: 3px;
+   border-radius: 5px;
    width: 60%;
 }
 
 .texto_do_botao {
    font-weight: bold;
+   border: none;
+   background-color: transparent;
+   color: #FFFF00;
+   cursor: pointer;
+   width: 100%;
 }
 
 /*Pergunta de Cadastro*/
@@ -414,6 +445,7 @@
    display: flex;
    gap: 5px;
    margin-right: 195px;
+   margin-top: -10px;
 }
 
 .cadastrar_se {

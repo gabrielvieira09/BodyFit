@@ -1,23 +1,27 @@
 import React from "react";
-import "./style.css"
-import usuario from "../../assets/usuario.png"
+import "./style.css";
+import usuario from "../../assets/usuario.png";
 
-export default function UsuarioComponent(name, email){
-   return(
-      <div className="usuarioComponent_container">
-         <div className="usuarioComponent_image">
-            <img src={usuario}/>
-         </div>
-         <div className="usuarioComponent_name">
-            <div>
-               <h3>Gabriel Afonso Santos Vieira</h3>
-               <text>gabrielafonsovieira09@gmail.com</text>
-            </div>
-         </div>
-         <div className="usuarioComponent_opcoes">
-            <button className="usuarioComponent_opcoes_editar">EDITAR</button>
-            <button className="usuarioComponent_opcoes_remover">REMOVER</button>
-         </div>
+export default function UsuarioComponent({ name, email, onEdit, onDelete }) {
+  return (
+    <div className="usuarioComponent_container">
+      <div className="usuarioComponent_image">
+        <img src={usuario} alt="Imagem do usuário" />
       </div>
-   )
+      <div className="usuarioComponent_name">
+        <div>
+          <h3>{name}</h3>
+          <text>{email}</text>
+        </div>
+      </div>
+      <div className="usuarioComponent_opcoes">
+        <button className="usuarioComponent_opcoes_editar" onClick={onEdit}>
+          EDITAR
+        </button>
+        <button className="usuarioComponent_opcoes_remover" onClick={onDelete}>
+          REMOVER
+        </button>
+      </div>
+    </div>
+  );
 }

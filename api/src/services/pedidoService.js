@@ -6,67 +6,76 @@ dotenv.config();
 
 // Função para criar um pedido a partir dos itens do carrinho
 export const criarPedido = async (userId, metodoPagamento) => {
-  // Busca o endereço do usuário
-  const usuario = await prisma.user.findUnique({
-    where: { id: userId },
-    include: { endereco: true },
-  });
-
-  if (!usuario || !usuario.endereco) {
-    throw new Error("Endereço não encontrado para o usuário.");
-  }
-
-  const enderecoEntrega = `${usuario.endereco.logradouro}, ${usuario.endereco.numero}, ${usuario.endereco.bairro}, ${usuario.endereco.cidade}, CEP: ${usuario.endereco.cep}`;
-
-  // Busca todos os itens do carrinho do usuário
-  const itensCarrinho = await prisma.carrinho.findMany({
-    where: { userId: userId },
-    include: { produto: true },
-  });
-
-  if (!itensCarrinho || itensCarrinho.length === 0) {
-    throw new Error("O carrinho está vazio.");
-  }
-
-  // Calcula o total do pedido
-  const total = itensCarrinho.reduce((acc, item) => {
-    return acc + item.quantidade * item.produto.preco;
-  }, 0);
-
-  // Cria o pedido
-  const pedido = await prisma.pedido.create({
-    data: {
-      userId: userId,
-      total: total,
-      metodoPagamento: metodoPagamento,
-      enderecoEntrega: enderecoEntrega,
-      itens: {
-        create: itensCarrinho.map((item) => ({
-          produtoId: item.produtoId,
-          quantidade: item.quantidade,
-          preco: item.produto.preco,
-        })),
-      },
-    },
-  });
-
-  // Atualiza o estoque dos produtos
-  for (const item of itensCarrinho) {
-    await prisma.produto.update({
-      where: { id: item.produtoId },
-      data: {
-        estoque: item.produto.estoque - item.quantidade, // Diminui o estoque
-      },
-    });
-  }
-
-  // Limpa o carrinho do usuário
-  await prisma.carrinho.deleteMany({
-    where: { userId: userId },
-  });
-
-  return pedido;
-};
+   // Busca o usuário com seus endereços
+   const usuario = await prisma.user.findUnique({
+     where: { id: userId },
+     include: { endereco: true },
+   });
+ 
+   console.log('usuario', usuario);
+   
+   // Verifica se o usuário existe e tem pelo menos um endereço
+   if (!usuario || usuario.endereco.length === 0) {
+     throw new Error("Endereço não encontrado para o usuário.");
+   }
+ 
+   // Pega o primeiro endereço do array de endereços
+   const enderecoEntrega = usuario.endereco[0];
+   const enderecoFormatado = `${enderecoEntrega.logradouro}, ${enderecoEntrega.numero}, ${enderecoEntrega.bairro}, ${enderecoEntrega.cidade}, CEP: ${enderecoEntrega.cep}`;
+ 
+   console.log(enderecoFormatado);
+   
+ 
+   // Busca todos os itens do carrinho do usuário
+   const itensCarrinho = await prisma.carrinho.findMany({
+     where: { userId: userId },
+     include: { produto: true },
+   });
+ 
+   if (!itensCarrinho || itensCarrinho.length === 0) {
+     throw new Error("O carrinho está vazio.");
+   }
+ 
+   // Calcula o total do pedido
+   const total = itensCarrinho.reduce((acc, item) => {
+     return acc + item.quantidade * item.produto.preco;
+   }, 0);
+ 
+   // Cria o pedido
+   const pedido = await prisma.pedido.create({
+     data: {
+       userId: userId,
+       total: total,
+       metodoPagamento: metodoPagamento,
+       enderecoEntrega: enderecoFormatado,
+       itens: {
+         create: itensCarrinho.map((item) => ({
+           produtoId: item.produtoId,
+           quantidade: item.quantidade,
+           preco: item.produto.preco,
+         })),
+       },
+     },
+   });
+ 
+   // Atualiza o estoque dos produtos
+   for (const item of itensCarrinho) {
+     await prisma.produto.update({
+       where: { id: item.produtoId },
+       data: {
+         estoque: item.produto.estoque - item.quantidade, // Diminui o estoque
+       },
+     });
+   }
+ 
+   // Limpa o carrinho do usuário
+   await prisma.carrinho.deleteMany({
+     where: { userId: userId },
+   });
+ 
+   return pedido;
+ };
+ 
 
 // Função para listar todos os pedidos do usuário autenticado (usuário comum)
 export const listarPedidos = async (userId) => {

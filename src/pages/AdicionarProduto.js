@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/adicionarProduto.css";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import api from "../services/api"; // Certifique-se de que o serviço da API esteja configurado
 import { useNavigate } from "react-router-dom";
+import camera from "../assets/camera.png"
 
 export default function AdicionarProduto() {
   const [nome, setNome] = useState("");
@@ -17,6 +18,11 @@ export default function AdicionarProduto() {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
+
+  const handleButtonClick = () => {
+   fileInputRef.current.click();
+};
 
   // Função para buscar as marcas na API
   useEffect(() => {
@@ -79,11 +85,20 @@ export default function AdicionarProduto() {
       <div className="criarProduto_main">
         <div className="criarProduto_informacoes">
           <div className="criarProduto_informacoes_esquerda">
-            <input type="file" multiple onChange={handleImageChange} className="criarProduto_image" />
+            <input 
+            type="file" 
+            ref={fileInputRef}
+            multiple 
+            onChange={handleImageChange} 
+            className="criarProduto_image_input"
+            />
+            <button onClick={handleButtonClick} className="criarProduto_image">
+               <img src={camera}/>
+            </button>
           </div>
           <div className="criarProduto_informacoes_direita">
-            <div className="criarProduto_infomacoes_direita_div">
-              <div>
+            <div className="direita_div">
+              <div className="direita_div_name">
                 <label>Nome:</label>
                 <input
                   type="text"

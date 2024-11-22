@@ -6,8 +6,12 @@ import { FaHeart } from "react-icons/fa";
 import { RiPencilFill } from "react-icons/ri";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 export default function ProdutosV({ produto }) {
+
+   const [error, setError] = useState(""); // Estado para capturar erros
+
    const navigate = useNavigate();
 
    const handleEdit = () => {
@@ -23,6 +27,27 @@ export default function ProdutosV({ produto }) {
    const toggleFavorite = () => {
       setIsFavorited(!isFavorited); // Inverte o valor atual do estado
    };
+
+   const handleAddToCart = async (produtoId) => {
+      try {
+        await api.post("/carrinho", {
+          userId: user.id, // Certifique-se de que o ID do usuário está correto
+          produtoId, // ID do produto
+          quantidade: 1, // Quantidade a ser adicionada
+        });
+        alert("Produto adicionado ao carrinho com sucesso!"); // Notifica o sucesso
+      } catch (error) {
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.message
+        ) {
+          setError(error.response.data.message); // Exibe a mensagem de erro da API
+        } else {
+          setError("Erro desconhecido. Por favor, tente novamente.");
+        }
+      }
+    };   
 
    return (
       <div className="ProdutosV_component">
@@ -62,7 +87,14 @@ export default function ProdutosV({ produto }) {
             </div>
          </div>
          <div className="ProdutosV_carrinho">
-            <button>Adicionar ao carrinho</button>
+            {user && user.role !== "ADMIN" && (
+            <button
+               onClick={(e) => {
+               e.stopPropagation();
+               handleAddToCart(produto.id);
+               }}
+            >Adicionar ao carrinho</button>
+            )}
          </div>
       </div>
    );

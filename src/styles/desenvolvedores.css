@@ -1,0 +1,97 @@
+.desenvolvedores_title {
+   width: 100%;
+   padding-top: 25px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.desenvolvedores_div {
+   width: 100%;
+   padding-top: 25px;
+   padding-bottom: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+/*DESENVOLVEDORES CARD*/
+.desenvolvedores_card {
+   width: 20%;
+   background-color: #6F6F6F; 
+   border-radius: 15px;
+   margin-top: 10px;
+   margin-left: 15px;
+   margin-right: 15px;
+}
+.card_image {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.card_image img {
+   width: 100%;
+   border-radius: 40px;
+   padding: 15px;
+   width: 300px;
+   height: 300px;
+}
+.card_name {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.card_name h3 {
+   color: white;
+   font-size: 26px;
+}
+.card_funcao {
+   width: 100%;
+}
+.card_funcao p {
+   margin-left: 15px;
+   font-weight: 300;
+   color: white;
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+.redes {
+   width: 100%;
+   display: flex;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-bottom: 15px;
+   align-items: center;
+   justify-content: center;
+}
+.div_dev_redes {
+   width: 35%;
+   display: flex;
+   align-items: center;
+}
+.div_dev_redes a {
+   width: 25px;
+   height: 25px;
+   margin: 2px;
+}
+.desenvolvedores_redes_sociais {
+   color: white;
+   width: 25px;
+   height: 25px;
+   cursor: pointer;
+}
+.desenvolvedores_redes_sociais:hover {
+   color: rgb(204, 204, 204);
+}
+.div_dev_email {
+   width: 65%;
+   display: flex;
+   justify-content: center;
+}
+.div_dev_email text {
+   font-size: 11px;
+   font-weight: 200;
+   color: white;
+   cursor: pointer;
+}
+/*DESENVOLVEDORES CARD - fim*/

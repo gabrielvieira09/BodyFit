@@ -31,7 +31,6 @@ export default function Header() {
          console.log("deu certo");
 
          closeModal(); // Fechar a modal após login bem-sucedido
-         navigate("/perfil"); // Redireciona para a página de perfil após login
       } catch (error) {
          if (
             error.response &&
@@ -44,12 +43,19 @@ export default function Header() {
          }
       }
    };
+   
 
    const [modalVisible, setModalVisible] = useState(false);
    const [mostrarSenha, setMostrarSenha] = useState(false);
 
    const openModal = () => setModalVisible(true);
-   const closeModal = () => setModalVisible(false);
+   const closeModal = () => {
+      setEmail(""); 
+      setPassword(""); 
+      setError(""); // Limpa a mensagem de erro
+      setModalVisible(false);
+   }
+      
 
    useEffect(() => {
       if (modalVisible) {
@@ -111,13 +117,13 @@ export default function Header() {
                         </div>
                         <div className="search_usuario_person">
                            <IoMdPerson />
-                           <text onClick={() => openModal()}>
-                              {user && user.role ? (
-                                 user.role === "ADMIN" ? "ADMIN" : "Perfil"
-                              ) : (
-                                 "Entrar"
-                              )}
-                           </text>
+                           {user && user.role ? (
+                              <Link className="search_usuario_person_link" to={user.role === "ADMIN" ? "/perfil" : "/perfil"}>
+                                 {user.role === "ADMIN" ? "ADMIN" : "Perfil"}
+                              </Link>
+                           ) : (
+                              <text onClick={() => openModal()}>Entrar</text>
+                           )}
                         </div>
                         <div className="search_usuario_carrinho">
                            <a href="/carrinho">
@@ -126,26 +132,44 @@ export default function Header() {
                         </div>
                      </div>
                   </div>
-                  <div className="header_inferior_navigation_baixo">
-                     <a className="divs_nav_individual" href="produtos">
-                        Todos os Produtos
-                     </a>
-                     <a className="divs_nav_individual" href="lancamentos">
-                        Lançamentos
-                     </a>
-                     <a className="divs_nav_individual" href="#">
-                        Whey Protein
-                     </a>
-                     <a className="divs_nav_individual" href="#">
-                        Barra de Proteina
-                     </a>
-                     <a className="divs_nav_individual" href="#">
-                        Creatina
-                     </a>
-                     <a className="divs_nav_individual" href="#">
-                        Pré-Treino
-                     </a>
-                  </div>
+                  {user && user.role !== "ADMIN" || user == undefined && (
+                     <div className="header_inferior_navigation_baixo">
+                        <a className="divs_nav_individual" href="/produtos">
+                           Todos os Produtos
+                        </a>
+                        <a className="divs_nav_individual" href="/lancamentos">
+                           Lançamentos
+                        </a>
+                        <a className="divs_nav_individual" href="#">
+                           Whey Protein
+                        </a>
+                        <a className="divs_nav_individual" href="#">
+                           Barra de Proteina
+                        </a>
+                        <a className="divs_nav_individual" href="#">
+                           Creatina
+                        </a>
+                        <a className="divs_nav_individual" href="#">
+                           Pré-Treino
+                        </a>
+                     </div>
+                  )}
+                  {user && user.role === "ADMIN" && (
+                     <div className="header_inferior_navigation_baixo">
+                        <a className="divs_nav_individual" href="/produtos">
+                           Todos os Produtos
+                        </a>
+                        <a className="divs_nav_individual" href="/lancamentos">
+                           Lançamentos
+                        </a>
+                        <a className="divs_nav_individual" href="/admin/historico-vendas">
+                           Historico de vendas
+                        </a>
+                        <a className="divs_nav_individual" href="/admin/usuarios">
+                           Gestão de usuários
+                        </a>
+                     </div>
+                  )}
                </div>
             </div>
             <div className="header_inferior_input-mobile">
@@ -202,12 +226,14 @@ export default function Header() {
                               onMouseLeave={() => setMostrarSenha(false)}
                            />
                         </div>
+                        {error && <div className="error-message">{error}</div>}
                      </div>
-                     {error && <div className="error-message">{error}</div>}
-                     <div className="botao_continuar_definitivo">
-                        <button type="submit" className="texto_do_botao">
-                           CONTINUAR
-                        </button>
+                     <div className="botao_continuar_div">
+                        <div className="botao_continuar_definitivo">
+                           <button type="submit" className="texto_do_botao">
+                              CONTINUAR
+                           </button>
+                        </div>
                      </div>
                   </form>
 

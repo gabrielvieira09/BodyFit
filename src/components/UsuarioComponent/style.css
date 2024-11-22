@@ -1,6 +1,7 @@
 .usuarioComponent_container {
-   width: 35%;
    display: flex;
+   border-bottom:3px solid rgb(214, 214, 214);
+   margin-bottom: 1px;
 }
 .usuarioComponent_image {
    width: 15%;

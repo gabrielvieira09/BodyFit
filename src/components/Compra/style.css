@@ -1,3 +1,4 @@
+/* Já existente */
 .compra_container {
    width: 100%;
    display: flex;
@@ -26,4 +27,155 @@
    border: 1px solid black;
    border-radius: 10px;
    cursor: pointer;
+}
+
+/*MODAL - Nova Adição */
+
+/* Camada de sobreposição para a Modal */
+.detalhes_overlay {
+   position: fixed; /* Fixa a modal na tela */
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.7); /* Escurece o fundo */
+   z-index: 1000; /* Coloca a modal por cima de tudo */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   backdrop-filter: blur(10px);
+}
+
+/* Estilo da Modal */
+.detalhes_content {
+   width: 950px;
+   height: 715px;
+   background-color: #3D3D3D;
+   display: flex;
+   flex-direction: column;
+   color: white;
+   border-radius: 20px;
+   position: relative;
+   z-index: 1001; /* Certifica que o conteúdo da modal fique acima da camada de fundo */
+   padding: 20px;
+}
+
+/* Fechar Ícone */
+.Icone_Fechar {
+   margin-top: 20px;
+   margin-right: 20px;
+   width: 40px;
+   height: 40px;
+   color: white;
+   cursor: pointer;
+}
+
+.Icone_Fechar:hover {
+   color: #FFFF00;
+}
+
+/* Restante do estilo da modal (não alterado) */
+
+/*----------------------------------------------------------------Primeira Div---------------------------------------------------------*/
+.Topo_Caixa {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+}
+
+.Pedido {
+   margin-left: 50px;
+   margin-top: 20px;
+   width: 100%;
+}
+
+/*----------------------------------------------------------------Segunda Div----------------------------------------------------------*/
+.Blocos_Endereço {
+   margin-top: 60px;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   font-size: 18px;
+}
+
+.Local_Exato {
+   margin-left: 50px;
+   width: 48%;
+}
+
+.Referência_Residencial {
+   margin-right: 50px;
+   width: 157px;
+}
+
+/*----------------------------------------------------------------Terceira Div---------------------------------------------------------*/
+.Credenciais_Pessoais {
+   margin-top: 60px;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   font-size: 18px;
+}
+
+.Pessoa_Real {
+   margin-left: 50px;
+   width: 48%;
+}
+
+.Número_Telefone {
+   margin-right: 50px;
+}
+
+/*----------------------------------------------------------------Título---------------------------------------------------------------*/
+.Título {
+   margin-top: 60px;
+   margin-left: 50px;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   font-size: 26px;
+   color: #CBBB01;
+}
+
+/*----------------------------------------------------------------Quarta Div-----------------------------------------------------------*/
+.Informações_Produtos {
+   margin-top: 20px;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.Produto_Específico {
+   margin-left: 50px;
+   width: 48%;
+}
+
+.Valor_Produto {
+   margin-right: 50px;
+}
+
+/*----------------------------------------------------------------Total Venda----------------------------------------------------------*/
+.Valor_Total {
+   margin-top: 60px;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   margin-left: 50px;
+}
+
+.Diferentinho {
+   color: #FFFF00;
+   font-size: 26px;
+   font-weight: bold;
+}
+
+.Pix {
+   font-size: 23px;
+}
+.no-scroll {
+   overflow: hidden;
 }

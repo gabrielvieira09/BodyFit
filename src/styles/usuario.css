@@ -2,15 +2,139 @@
    width: 100%;
    display: flex;
    justify-content: center;
+   flex-direction: column;
 }
 .usuarios_title {
-   width: 75%;
-   height: 75px;
+   width: 100%;
+   padding: 25px;
    display: flex;
    align-items: center;
+   justify-content: center;
 }
 .usuarios_title h1 {
    font-size: 40px;
    color: #585858;
    font-weight: 800;
 }
+.usuarios_components {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 50px;
+}
+.usuarios_div {
+   width: 650px;
+   border-top:3px solid rgb(214, 214, 214);
+   border-left:3px solid rgb(214, 214, 214);
+   border-right:3px solid rgb(214, 214, 214);
+}
+
+
+/*MODAL EDITAR USUARIO*/
+.dadosPessoais_perfil_usuario {
+   width: 55%;
+   border: 3px solid gray;
+   border-radius: 15px;
+   display: flex;
+   flex-direction: column;
+   padding-top: 10px;
+   background-color: #3D3D3D;
+   color: white;
+}
+.icone_fechar_perfil_usuario {
+   margin-left: 94%;
+   width: 40px;
+   height: 40px;
+   color: white;
+   cursor: pointer;
+}
+.icone_fechar_perfil_usuario:hover {
+   color: #FFFF00;
+}
+.block_perfil_usuario {
+   width: 100%;
+   padding-left: 5%;
+   margin-top: 10px;
+   display: flex;
+   flex-direction: row;
+   color: white;
+}
+.componente_cadastro_perfil_usuario {
+   display: flex;
+   flex-direction: column;
+   width: 60%;
+   
+}
+.input_maior_cadastro_perfil_usuario {
+   margin-top: 5px;
+   width: 85%;
+   height: 25px;
+   font-size: 15px;
+   padding-left:5px;
+   
+}
+.input_medio_cadastro_perfil_usuario {
+   margin-top: 5px;
+   width: 60%;
+   height: 25px;
+   font-size: 20px;
+   padding-left:5px;
+   margin-left: 50px;
+}
+.input_menor_cadastro_perfil_usuario {
+   margin-top: 5px;
+   width: 60%;
+   height: 25px;
+   font-size: 20px;
+   padding-left:5px;
+   margin-left: 50px;
+}
+.componente_cadastro_direita_perfil_usuario text {
+   margin-left: 50px;
+   display: flex;
+   flex-direction: column;
+}
+.block_menor_perfil_usuario {
+   width: 56.5%;
+   padding-left: 5%;
+   margin-top: 25px;
+   display: flex;
+   flex-direction: row;
+}
+.block_final_perfil_usuario {
+   width: 95%;
+   padding-left: 5%;
+   margin-top: 25px;
+   display: flex;
+   flex-direction: row;
+   padding-bottom: 20px;
+}
+.input_maior_cadastro_fim_perfil_usuario {
+   margin-top: 5px;
+   width: 121.5%;
+   height: 25px;
+   font-size: 15px;
+   padding-left:5px;
+   margin-bottom: 35px;
+}
+.componente_cadastro_fim_perfil_usuario {
+   display: flex;
+   align-items: end;
+   width: 100%;
+   justify-content: space-between;
+   padding-bottom: 5px;
+}
+.componente_cadastro_fim_perfil_usuario button {
+   font-size: 25px;
+   border: none;
+   background-color: transparent;
+   color: #9C9C07;
+   margin-left: 50px;
+   cursor: pointer;
+   font-weight: bold;
+}
+.componente_cadastro_fim_perfil_usuario button:hover {
+   color: #FFFF00;
+}
+/*MODAL EDITAR USUARIO - fim*/

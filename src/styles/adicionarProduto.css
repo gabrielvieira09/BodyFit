@@ -11,20 +11,62 @@
    align-items: center;
    justify-content: center;
 }
-.criarProduto_image {
+.criarProduto_image_input {
+   display: none;
    width: 250px;
    height: 250px;
    background-color: white;
    cursor: pointer;
 }
+.criarProduto_image {
+   width: 250px;
+   height: 250px;
+   background-color: white;
+   cursor: pointer; 
+   border-radius: 10px;
+   border: 5px solid black;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.criarProduto_image img {
+   width: 60px;
+   height: 55px;
+}
 .criarProduto_informacoes_direita {
    width: 50%;
+   background-color: bisque;
 }
-.infomacoes_direita_div {
-   width: 60%;
-   background-color: blueviolet;
+.direita_div {
+   width: 50%;
+   height: 100%;
+   background-color: aqua;
+}
+.direita_div_name {
+
 }
 .criarProduto_botao {
    width: 100%;
-   background-color: blue;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.criarProduto_botao button {
+   background-color: yellow;
+   border: #000000 3px solid;
+   color: #000000;
+   padding: 15px 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin-top: 35px;
+   margin-bottom: 35px;
+   cursor: pointer;
+   border-radius: 5px;
+   width: 20%;
+   font-weight: bold;
 }

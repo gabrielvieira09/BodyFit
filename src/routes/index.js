@@ -8,14 +8,13 @@ import Perfil from "../pages/Perfil";
 import Carrinho from "../pages/Carrinho";
 import Produtos from "../pages/Produtos";
 import DetalhesProduto from "../pages/DetalhesProduto";
-//import AdicionarProduto from "../pages/AdicionarProduto";
-//import EditarProduto from "../pages/EditarProduto";
-//import ListaDesejo from "./pages/ListaDesejo"
+import ListaDesejo from "../pages/ListaDesejo"
 import HistoricoVendas from "../pages/HistoricoVendas";
 import Usuarios from "../pages/Usuarios";
 import ProdutosAdmin from "../pages/ProdutosAdmin";
 import AdicionarProduto from "../pages/AdicionarProduto";
 import EditarProduto from "../pages/EditarProduto";
+import Desenvolvedores from "../pages/Desenvolvedores";
 
 export default function AppRoutes() {
   return (
@@ -26,7 +25,9 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/produtos" element={<Produtos />} />
+        <Route path="/listadesejo" element={<ListaDesejo />} />
         <Route path="/produtos/:id" element={<DetalhesProduto />} />
+        <Route path="/desenvolvedores" element={<Desenvolvedores />} />
 
         {/* Rotas protegidas (apenas usuários logados) */}
         
@@ -34,6 +35,9 @@ export default function AppRoutes() {
          {/* <Route path="/listadesejo" element={<ListaDesejo />} /> */}
          <Route path="/carrinho" element={<Carrinho />} />
          <Route path="/perfil" element={<Perfil />} />
+         <Route path="/listadesejo" element={<ListaDesejo />} />
+         <Route path="/produtos" element={<Produtos />} />
+         <Route path="/desenvolvedores" element={<Desenvolvedores />} />
         </Route>
 
         {/* Rotas protegidas de admin (apenas administradores) */}
@@ -44,6 +48,7 @@ export default function AppRoutes() {
           <Route path="/admin/editar-produto/:id" element={<EditarProduto />} />
           <Route path="/admin/historico-vendas" element={<HistoricoVendas />} />
           <Route path="/admin/usuarios" element={<Usuarios />} />
+          <Route path="/desenvolvedores" element={<Desenvolvedores />} />
         </Route>
       </Routes>
     </Router>

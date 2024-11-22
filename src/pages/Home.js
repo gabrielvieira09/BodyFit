@@ -110,17 +110,36 @@ export default function Home() {
           <h1>Para que servem os suplementos alimentares?</h1>
           <div>
             <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suplementos alimentares
-              são a melhor forma que você tem de repor nutrientes ou adicioná-los à sua dieta...
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os suplementos alimentares são produtos destinados a complementar a alimentação diária, fornecendo nutrientes que podem estar em falta ou em quantidades insuficientes na dieta. Eles têm como objetivo ajudar a garantir que o corpo receba os nutrientes essenciais necessários para seu funcionamento ideal, como vitaminas, minerais, proteínas, aminoácidos, ácidos graxos essenciais e fibras.
+            </p>
+            <p>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esses suplementos podem ser indicados para diferentes finalidades, dependendo das necessidades individuais. Por exemplo, atletas podem utilizar suplementos para melhorar o desempenho físico e acelerar a recuperação muscular, enquanto pessoas com deficiências nutricionais específicas podem fazer uso de vitaminas e minerais para corrigir essas lacunas. Além disso, idosos, gestantes e pessoas com dietas restritivas (como veganas ou vegetarianas) também podem se beneficiar de suplementos para garantir uma nutrição balanceada.
             </p>
           </div>
           <div className={`content ${Expandido ? "expandido" : "collapsed"}`}>
             <p className="text_expandido">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As pessoas têm diferentes necessidades durante a vida...
-            </p>
-            <h2>Repor Nutrientes Essenciais de Forma Eficiente</h2>
             <p>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Suplementos alimentares são a melhor forma que você tem de repor nutrientes...
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;É importante destacar que, embora os suplementos possam ser úteis em certas situações, eles não devem substituir uma alimentação equilibrada e saudável. A ingestão excessiva de suplementos, sem a orientação de um profissional de saúde, pode gerar efeitos adversos e até prejudicar o organismo. Portanto, é fundamental consultar um médico ou nutricionista antes de iniciar o uso de qualquer suplemento, a fim de garantir que ele seja adequado às necessidades individuais e consumido nas doses corretas.
+            </p>
+               <div>
+               <h2>Repor Nutrientes Essenciais de Forma Eficiente</h2>
+               <p>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Repor nutrientes essenciais de forma eficiente é fundamental para manter o bom funcionamento do organismo e garantir a saúde a longo prazo. Nosso corpo necessita de uma variedade de nutrientes, como vitaminas, minerais, proteínas e ácidos graxos, para desempenhar funções vitais, como a produção de energia, a manutenção da saúde imunológica e a reparação de tecidos. Quando a alimentação não é capaz de suprir todas essas necessidades de maneira adequada, a reposição por meio de suplementos alimentares pode ser uma alternativa eficaz.
+               </p>
+               <p>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A eficiência na reposição de nutrientes depende de vários fatores, como a escolha dos suplementos certos, a dosagem correta e a forma de administração. Por exemplo, algumas vitaminas e minerais são melhor absorvidos quando ingeridos com alimentos, enquanto outros, como a vitamina D, podem ser consumidos com ou sem alimentos. Além disso, a escolha de suplementos de alta qualidade, que utilizam formas biodisponíveis de nutrientes, é essencial para garantir que o corpo consiga absorver e utilizar os componentes de forma adequada.
+               </p>
+               <h2>Suplementos podem substituir a alimentação?</h2>
+               <p>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os suplementos têm vitaminas e proteínas que fazem bem para o coração, rins, fígado e músculos. Mesmo assim, eles não substituem a alimentação.
+               </p>
+               <p>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os suplementos prontos e já industrializados se apresentam como uma saída segura e bem mais acessível para quem busca equilíbrio e melhora da imunidade corporal. Um suplemento alimentar, por melhor que seja, jamais substituirá uma boa dieta alimentar ou um tratamento médico específico. Afinal, como o próprio nome diz, suplemento é algo que existe para completar, portanto é um complemento alimentar, e nunca um substituto.
+               </p>
+               <p>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“Os suplementos funcionam como um complemento da alimentação. Na maioria dos casos, são indicados para pessoas que apresentam uma carência muito grande de determinado nutriente”, explica a nutricionista Camila Garcia, da equipe do setor de Nutrição Preventiva do Hospital do Coração, de São Paulo. “Mas, em geral, uma alimentação equilibrada já faz esse papel, seja para prática de exercícios ou para o dia a dia.”
+               </p>
+               </div>
             </p>
           </div>
 

@@ -34,33 +34,45 @@ export const adicionarItemAoCarrinho = async (
 };
 
 export const listarItensDoCarrinho = async (userId) => {
-  // Busca todos os itens do carrinho do usuário autenticado
-  const itensCarrinho = await prisma.carrinho.findMany({
-    where: {
-      userId: userId, // Filtra pelo userId do usuário autenticado
-    },
-    include: {
-      produto: true, // Inclui os detalhes do produto no retorno
-    },
-  });
-
-  // Formatar o retorno no formato desejado
-  return {
-    id: userId, // ID do usuário autenticado
-    userId: userId, // Vincula o carrinho ao usuário
-    "produtos-carrinho": itensCarrinho.map((item) => ({
-      produtoId: item.produtoId,
-      quantidade: item.quantidade,
-      produto: {
-        id: item.produto.id,
-        nome: item.produto.nome,
-        preco: item.produto.preco,
-        estoque: item.produto.estoque,
-        descricao: item.produto.descricao,
-      },
-    })),
-  };
-};
+   // Busca todos os itens do carrinho do usuário autenticado
+   const itensCarrinho = await prisma.carrinho.findMany({
+     where: {
+       userId: userId, // Filtra pelo userId do usuário autenticado
+     },
+     include: {
+       produto: {
+         include: {
+           imagens: true, // Inclui as imagens associadas ao produto
+         },
+       },
+     },
+   });
+ 
+   // Formatar o retorno no formato desejado
+   return {
+     id: userId, // ID do usuário autenticado
+     userId: userId, // Vincula o carrinho ao usuário
+     "produtos-carrinho": itensCarrinho.map((item) => {
+       // Formatar URLs das imagens
+       const imagensFormatadas = item.produto.imagens.map((imagem) => {
+         return `${process.env.BASE_URL}/${imagem.url.replace(/\\/g, "/")}`;
+       });
+ 
+       return {
+         produtoId: item.produtoId,
+         quantidade: item.quantidade,
+         produto: {
+           id: item.produto.id,
+           nome: item.produto.nome,
+           preco: item.produto.preco,
+           estoque: item.produto.estoque,
+           descricao: item.produto.descricao,
+           imagens: imagensFormatadas, // Adiciona as URLs formatadas
+         },
+       };
+     }),
+   };
+ };
 
 export const editarItemDoCarrinho = async (userId, produtoId, quantidade) => {
   // Verifica se o item existe no carrinho do usuário
