@@ -118,9 +118,11 @@ export default function ProdutosAdmin() {
           </div>
         </div>
         <div className="div_todosProdutos">
+        {user && user.role === "ADMIN" && (
           <div onClick={() => navigate("/admin/adicionar-produto")} className="div_criarProduto">
             <img src={Add} alt="Adicionar Produto" />
           </div>
+        )}
           {produtosFiltrados.length > 0 ? (
             produtosFiltrados.map((produto) => (
               <ProdutosV key={produto.id} produto={produto} />

@@ -15,6 +15,11 @@ import ProdutosAdmin from "../pages/ProdutosAdmin";
 import AdicionarProduto from "../pages/AdicionarProduto";
 import EditarProduto from "../pages/EditarProduto";
 import Desenvolvedores from "../pages/Desenvolvedores";
+import Creatina from "../pages/Creatina"
+import WheyProtein from "../pages/WheyProtein"
+import BarraProteina from "../pages/BarraProteina"
+import PreTreino from "../pages/PreTreino"
+import Lancamentos from "../pages/Lancamentos"
 
 export default function AppRoutes() {
   return (
@@ -25,15 +30,25 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/produtos" element={<Produtos />} />
-        <Route path="/listadesejo" element={<ListaDesejo />} />
+        <Route path="/creatina" element={<Creatina />} />
+        <Route path="/wheyprotein" element={<WheyProtein />} />
+        <Route path="/barraProteina" element={<BarraProteina />} />
+        <Route path="/preTreino" element={<PreTreino />} />
+        <Route path="/lancamentos" element={<Lancamentos />} />
         <Route path="/produtos/:id" element={<DetalhesProduto />} />
         <Route path="/desenvolvedores" element={<Desenvolvedores />} />
-
+        <Route path="/detalhesProduto" element={<DetalhesProduto />} />
+      
         {/* Rotas protegidas (apenas usuários logados) */}
         
         <Route element={<PrivateRoutes />}>
          {/* <Route path="/listadesejo" element={<ListaDesejo />} /> */}
          <Route path="/carrinho" element={<Carrinho />} />
+         <Route path="/creatina" element={<Creatina />} />
+        <Route path="/wheyprotein" element={<WheyProtein />} />
+        <Route path="/barraProteina" element={<BarraProteina />} />
+        <Route path="/preTreino" element={<PreTreino />} />
+        <Route path="/lancamentos" element={<Lancamentos />} />
          <Route path="/perfil" element={<Perfil />} />
          <Route path="/listadesejo" element={<ListaDesejo />} />
          <Route path="/produtos" element={<Produtos />} />

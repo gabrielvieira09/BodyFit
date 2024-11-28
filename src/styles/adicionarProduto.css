@@ -1,72 +1,208 @@
 .criarProduto_informacoes {
-   width: 100%;
-   background-color: red;
-   margin-top: 100px;
-   display: flex;
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
 }
 .criarProduto_informacoes_esquerda {
-   width: 50%;
-   background-color: green;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .criarProduto_image_input {
-   display: none;
-   width: 250px;
-   height: 250px;
-   background-color: white;
-   cursor: pointer;
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  cursor: pointer;
 }
 .criarProduto_image {
-   width: 250px;
-   height: 250px;
-   background-color: white;
-   cursor: pointer; 
-   border-radius: 10px;
-   border: 5px solid black;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .criarProduto_image img {
-   width: 60px;
-   height: 55px;
+  width: 60px;
+  height: 55px;
 }
 .criarProduto_informacoes_direita {
-   width: 50%;
-   background-color: bisque;
+  width: 50%;
 }
 .direita_div {
-   width: 50%;
-   height: 100%;
-   background-color: aqua;
+  width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.direita_div_title {
+  width: 120px;
+  font-size: 18px;
 }
 .direita_div_name {
-
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
 }
+.direita_div_name input {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid black;
+  font-size: 20px;
+}
+.direita_div_marca {
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+}
+.direita_div_marca select {
+  width: 100%;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+.direita_div_preco_desconto {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.direita_div_preco {
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+}
+.direita_div_preco input {
+  width: 70%;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid black;
+  margin-left: 4px;
+}
+.direita_div_title_desconto {
+  margin-right: 5px;
+  margin-left: 20px;
+}
+.direita_div_desconto {
+  display: flex;
+  margin-bottom: 5px;
+  align-items: center;
+}
+.direita_div_desconto input {
+  width: 100%;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+.direita_div_descricao {
+  display: flex;
+  margin-bottom: 5px;
+}
+.direita_div_descricao textarea {
+  width: 100%;
+  height: 80px;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+.direita_div_estoque {
+  display: flex;
+  align-items: center;
+}
+.direita_div_estoque input {
+  width: 100%;
+  font-size: 20px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
 .criarProduto_botao {
-   width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .criarProduto_botao button {
-   background-color: yellow;
-   border: #000000 3px solid;
-   color: #000000;
-   padding: 15px 15px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   margin-top: 35px;
-   margin-bottom: 35px;
+  background-color: yellow;
+  border: #000000 3px solid;
+  color: #000000;
+  padding: 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 20%;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 750px) {
+  .criarProduto_informacoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .criarProduto_informacoes_esquerda {
+    margin-bottom: 50px;
+  }
+  .criarProduto_informacoes_direita {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+  .criarProduto_botao button {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 410px) {
+  .criarProduto_informacoes_esquerda {
+   width: 100%;
+  }
+  .criarProduto_image_input {
+   display: none;
+   width: 200px;
+   height: 200px;
+   background-color: white;
    cursor: pointer;
-   border-radius: 5px;
-   width: 20%;
-   font-weight: bold;
+}
+  .direita_div_preco_desconto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .direita_div_preco {
+    display: flex;
+    align-items: center;
+  }
+  .direita_div_preco input {
+    width: 100%;
+    font-size: 20px;
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+  .direita_div_title_desconto {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .direita_div_desconto {
+    display: flex;
+    align-items: center;
+  }
+  .direita_div_desconto input {
+    width: 100%;
+    font-size: 20px;
+    border-radius: 3px;
+    border: 1px solid black;
+  }
 }

@@ -19,13 +19,13 @@ export default function Footer() {
             <img src={logo}/><br/><br/>
 
             <text className="footer_superior_negrito">Horário de atendimento</text><br/>
-            <text>Das 9h -18h</text><br/><br/>
+            <text className="footer_superior_inform">Das 9h -18h</text><br/><br/>
 
             <text className="footer_superior_negrito">Telefone comercial:</text>
-            <text> (16) 99627-9001</text><br/><br/>
+            <text className="footer_superior_inform"> (16) 99627-9001</text><br/><br/>
 
             <text className="footer_superior_negrito">Email:</text>
-            <text> bodyfit023@gmail.com</text><br/><br/>
+            <text className="footer_superior_inform"> bodyfit023@gmail.com</text><br/><br/>
 
             <a id="footer_superior_link" href="/desenvolvedores">Desenvolvedores do SITE</a>
          </div>

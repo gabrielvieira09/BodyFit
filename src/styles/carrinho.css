@@ -1,5 +1,4 @@
 .carrinho_container_main {
-   height: calc(100vh - 173px);
    display: flex;
 }
 /*PRODUTOSH CARRINHO*/
@@ -33,7 +32,9 @@
 
 /*PEDIDO CARRINHO*/
 .carrinho_pedido_main {
-   width: 30%;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   width: 450px;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -209,3 +210,20 @@
    width: 80%;
 }
 /*PEDIDO CARRINHO - fim*/
+
+
+@media screen and (max-width: 1000px) {
+   .carrinho_container_main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+}
+@media screen and (max-width: 500px) {
+   .container_title_carrinho h1 {
+      font-size: 20px;
+   }
+   .carrinho_pedido_main {
+      width: 100%;
+   }
+}

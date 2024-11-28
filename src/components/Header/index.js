@@ -20,7 +20,6 @@ export default function Header() {
    const [password, setPassword] = useState("");
    const [error, setError] = useState("");
    const { user, login } = useContext(AuthContext); // Usando o contexto de autenticação
-   const navigate = useNavigate(); // Usando navigate para redirecionar
 
    const handleLogin = async (event) => {
       event.preventDefault();
@@ -43,19 +42,19 @@ export default function Header() {
          }
       }
    };
-   
+
 
    const [modalVisible, setModalVisible] = useState(false);
    const [mostrarSenha, setMostrarSenha] = useState(false);
 
    const openModal = () => setModalVisible(true);
    const closeModal = () => {
-      setEmail(""); 
-      setPassword(""); 
+      setEmail("");
+      setPassword("");
       setError(""); // Limpa a mensagem de erro
       setModalVisible(false);
    }
-      
+
 
    useEffect(() => {
       if (modalVisible) {
@@ -90,7 +89,7 @@ export default function Header() {
             </div>
             <div className="header_inferior">
                <div className="header_inferior_logo">
-                  <button>
+                  <button onClick={() => openModal()}>
                      <FiMenu id="aba_menu-mobile" />
                   </button>
                   <a href="/">
@@ -132,7 +131,7 @@ export default function Header() {
                         </div>
                      </div>
                   </div>
-                  {user && user.role !== "ADMIN" || user == undefined && (
+                  {(!user || (user && user.role !== "ADMIN")) && (
                      <div className="header_inferior_navigation_baixo">
                         <a className="divs_nav_individual" href="/produtos">
                            Todos os Produtos
@@ -140,16 +139,16 @@ export default function Header() {
                         <a className="divs_nav_individual" href="/lancamentos">
                            Lançamentos
                         </a>
-                        <a className="divs_nav_individual" href="#">
+                        <a className="divs_nav_individual" href="/wheyprotein">
                            Whey Protein
                         </a>
-                        <a className="divs_nav_individual" href="#">
+                        <a className="divs_nav_individual" href="/barraProteina">
                            Barra de Proteina
                         </a>
-                        <a className="divs_nav_individual" href="#">
+                        <a className="divs_nav_individual" href="/creatina">
                            Creatina
                         </a>
-                        <a className="divs_nav_individual" href="#">
+                        <a className="divs_nav_individual" href="/preTreino">
                            Pré-Treino
                         </a>
                      </div>
@@ -182,6 +181,53 @@ export default function Header() {
                </div>
             </div>
          </div>
+         {modalVisible && (
+            <div className="menuMobile_container">
+               <div className="div_fechar_mobile">
+                  <MdClose className="icone_fechar_mobile" onClick={closeModal} />
+               </div>
+               <div>
+                  {user && user.role !== "ADMIN" || user == undefined && (
+                     <div className="header_inferior_navigation_baixo_mobile">
+                        <a className="divs_nav_individual_mobile" href="/produtos">
+                           Todos os Produtos
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="/lancamentos">
+                           Lançamentos
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="#">
+                           Whey Protein
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="#">
+                           Barra de Proteina
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="#">
+                           Creatina
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="#">
+                           Pré-Treino
+                        </a>
+                     </div>
+                  )}
+                  {user && user.role === "ADMIN" && (
+                     <div className="header_inferior_navigation_baixo_mobile">
+                        <a className="divs_nav_individual_mobile" href="/produtos">
+                           Todos os Produtos
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="/lancamentos">
+                           Lançamentos
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="/admin/historico-vendas">
+                           Historico de vendas
+                        </a>
+                        <a className="divs_nav_individual_mobile" href="/admin/usuarios">
+                           Gestão de usuários
+                        </a>
+                     </div>
+                  )}
+               </div>
+            </div>
+         )}
          {modalVisible && (
             <div className="modal-login_container">
                <div className="caixa_de_informacoes">

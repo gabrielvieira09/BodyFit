@@ -13,3 +13,11 @@
    color: #585858;
    font-weight: 800;
 }
+.venda-item {
+   width: 40%;
+   display: flex;
+}
+.compra_descricao_venda {
+   display: flex;
+   flex-direction: column;
+}

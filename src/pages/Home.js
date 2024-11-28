@@ -90,7 +90,7 @@ export default function Home() {
       <div className="div_produtos_maisVendido">
         <div className="produtos_maisVendido">
           <div>
-            {/* Mapear os produtos filtrados (os 8 primeiros) */}
+            {/* Mapear os produtos filtrados (os 8 primeiros)
             {produtos.map((produto, index) => (
               <ProdutosV
                 key={index}
@@ -99,7 +99,7 @@ export default function Home() {
                 price={produto.preco} // Supondo que cada produto tenha um campo 'preco'
                 discount={produto.desconto} // Supondo que cada produto tenha um campo 'desconto'
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>
@@ -167,7 +167,7 @@ export default function Home() {
                   <text>★★★★★</text>
                 </div>
               </div>
-              <div className="depoimento_individual">
+              <div className="depoimento_individual" id="octavio_depoimento">
                 <div className="name_avaliacao">
                   <h2>Octávio</h2>
                 </div>
@@ -178,7 +178,7 @@ export default function Home() {
                   <text>★★★★</text>
                 </div>
               </div>
-              <div className="depoimento_individual">
+              <div className="depoimento_individual" id="matheus_depoimento">
                 <div className="name_avaliacao">
                   <h2>Matheus</h2>
                 </div>

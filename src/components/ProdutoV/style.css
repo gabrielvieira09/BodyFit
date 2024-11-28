@@ -48,7 +48,10 @@
    width: 20px;
    height: 20px;
 }
-
+.link_detalhesProduto {
+   text-decoration: none;
+   color: black;
+}
 .ProdutosV_image {
    width: 100%;
    display: flex;

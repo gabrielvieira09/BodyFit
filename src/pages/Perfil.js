@@ -25,6 +25,7 @@ export default function Perfil() {
    const [successMessage, setSuccessMessage] = useState("");
    const [disabled, setDisabled] = useState(true);
    const [pedidos, setPedidos] = useState([]);
+   const [usuario, setUsuario] = useState();
    const [activeSection, setActiveSection] = useState("dadosPessoais");
    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
@@ -38,19 +39,7 @@ export default function Perfil() {
       const fetchPerfil = async () => {
          try {
             const responsePerfil = await api.get("/perfil");
-            setFormData({
-               nome: responsePerfil.data.nome,
-               email: responsePerfil.data.email,
-               telefone: responsePerfil.data.telefone,
-               password: "",
-               cpf: responsePerfil.data.cpf,
-               cep: responsePerfil.data.endereco.cep,
-               cidade: responsePerfil.data.endereco.cidade,
-               bairro: responsePerfil.data.endereco.bairro,
-               logradouro: responsePerfil.data.endereco.logradouro,
-               complemento: responsePerfil.data.endereco.complemento,
-               numero: responsePerfil.data.endereco.numero,
-            });
+            setUsuario(responsePerfil.data)
          } catch (error) {
             setError(error.response?.data?.message || "Erro desconhecido. Por favor, tente novamente.");
          }
@@ -58,6 +47,8 @@ export default function Perfil() {
 
       fetchPerfil();
    }, [user, loading]);
+
+   console.log(usuario)
 
    // Carregar os pedidos do usuário
    useEffect(() => {
@@ -143,12 +134,14 @@ export default function Perfil() {
                   >
                      Dados pessoais
                   </button>
-                  <button
-                     className={activeSection === "historicoCompras" ? "perfil_options_button active" : "perfil_options_button"}
-                     onClick={() => setActiveSection("historicoCompras")}
-                  >
-                     Histórico de compras
-                  </button>
+                  {user && user.role !== "ADMIN" && (
+                     <button
+                        className={activeSection === "historicoCompras" ? "perfil_options_button active" : "perfil_options_button"}
+                        onClick={() => setActiveSection("historicoCompras")}
+                     >
+                        Histórico de compras
+                     </button>
+                  )}
                   <button className="perfil_options_button_sair" onClick={handleLogoutModal}>
                      Sair
                   </button>
@@ -160,12 +153,108 @@ export default function Perfil() {
                         <text>Dados pessoais</text>
                      </div>
                      <form onSubmit={handleSave} className="dadosPessoais_perfil">
-                        {/* Manter a parte de Dados Pessoais como estava */}
+                        {/* Inputs de dados pessoais preenchidos dinamicamente */}
+                        <div className="form_group">
+                           <label>Nome:</label>
+                           <input
+                              type="text"
+                              name="nome"
+                              value={formData.nome || usuario?.nome || ""}
+                              onChange={handleChange}
+                              disabled={disabled}
+                           />
+                        </div>
+                        <div className="form_group">
+                           <label>Email:</label>
+                           <input
+                              type="email"
+                              name="email"
+                              value={formData.email || usuario?.email || ""}
+                              onChange={handleChange}
+                              disabled={disabled}
+                           />
+                        </div>
+                        <div className="form_group">
+                           <label>Telefone:</label>
+                           <input
+                              type="text"
+                              name="telefone"
+                              value={formData.telefone || usuario?.telefone || ""}
+                              onChange={handleChange}
+                              disabled={disabled}
+                           />
+                        </div>
+                        <div className="form_group">
+                           <label>CPF:</label>
+                           <input
+                              type="text"
+                              name="cpf"
+                              value={formData.cpf || usuario?.cpf || ""}
+                              onChange={handleChange}
+                              disabled={disabled}
+                           />
+                        </div>
+                        <div className="form_group">
+                           <label>Endereço:</label>
+                           {usuario?.endereco && usuario.endereco.length > 0 ? (
+                              usuario.endereco.map((end, index) => (
+                                 <div key={index} className="endereco_group">
+                                    <input
+                                       type="text"
+                                       name={`logradouro_${index}`}
+                                       value={formData[`logradouro_${index}`] || end.logradouro || ""}
+                                       onChange={handleChange}
+                                       disabled={disabled}
+                                    />
+                                    <input
+                                       type="text"
+                                       name={`numero_${index}`}
+                                       value={formData[`numero_${index}`] || end.numero || ""}
+                                       onChange={handleChange}
+                                       disabled={disabled}
+                                    />
+                                    <input
+                                       type="text"
+                                       name={`bairro_${index}`}
+                                       value={formData[`bairro_${index}`] || end.bairro || ""}
+                                       onChange={handleChange}
+                                       disabled={disabled}
+                                    />
+                                    <input
+                                       type="text"
+                                       name={`cidade_${index}`}
+                                       value={formData[`cidade_${index}`] || end.cidade || ""}
+                                       onChange={handleChange}
+                                       disabled={disabled}
+                                    />
+                                    <input
+                                       type="text"
+                                       name={`cep_${index}`}
+                                       value={formData[`cep_${index}`] || end.cep || ""}
+                                       onChange={handleChange}
+                                       disabled={disabled}
+                                    />
+                                 </div>
+                              ))
+                           ) : (
+                              <p>Não informado</p>
+                           )}
+                        </div>
+                        <div className="form_buttons">
+                           {disabled ? (
+                              <button type="button" onClick={handleEdit}>
+                                 Editar
+                              </button>
+                           ) : (
+                              <button type="submit">Salvar</button>
+                           )}
+                        </div>
                      </form>
                      {error && <p className="error">{error}</p>}
                      {successMessage && <p className="success">{successMessage}</p>}
                   </div>
                )}
+
                {activeSection === "historicoCompras" && (
                   <div className="perfil_historico">
                      <div className="perfil_historico_text">

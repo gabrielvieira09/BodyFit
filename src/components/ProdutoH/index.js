@@ -53,7 +53,7 @@ export default function ProdutosH({ produto, onRemoverProduto }) {
                   <span>Com desconto à vista ou em {produto?.produto?.desconto || "0"}x no cartão</span>
                </div>
                <div className="ProdutosH_quantidade">
-                  <span>Quantidade: {produto?.quantidade || "0"}</span>
+                  <span>Quantidade: {produto?.quantidade || "1"}</span>
                </div>
             </div>
             <div className="ProdutosH_remover">

@@ -6,26 +6,30 @@ import {
 
 // Adicionar um item ao listaDesejo
 export const adicionarItemAoListaDesejoController = async (req, res) => {
-  const userId = req.user.userId; // ID do usuário autenticado
-  const { produtoId } = req.body;
-
-  // Verifica se o usuário é um administrador
-  if (req.user.role !== "USER") {
-    return res.status(403).json({
-      error: "Apenas usuários podem ter listaDesejos.",
-    });
-  }
-
-  try {
-    const listaDesejo = await adicionarItemAoListaDesejo(
-      userId,
-      produtoId,
-    );
-    res.status(201).json(listaDesejo);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
+   const userId = req.user.userId; // ID do usuário autenticado
+   const { produtoId } = req.body;
+ 
+   // Verifica se o usuário é um administrador
+   if (req.user.role !== "USER") {
+     return res.status(403).json({
+       error: "Apenas usuários podem ter listaDesejos.",
+     });
+   }
+ 
+   try {
+     // Garantir que o produtoId é um número
+     const produtoIdNumber = parseInt(produtoId, 10);
+     if (isNaN(produtoIdNumber)) {
+       return res.status(400).json({ error: "produtoId deve ser um número válido." });
+     }
+ 
+     const listaDesejo = await adicionarItemAoListaDesejo(userId, produtoIdNumber);
+     res.status(201).json(listaDesejo);
+   } catch (error) {
+     res.status(400).json({ error: error.message });
+   }
+ };
+ 
 
 // Listar os itens do listaDesejo
 export const listarItensDoListaDesejoController = async (req, res) => {

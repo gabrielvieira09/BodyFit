@@ -297,3 +297,153 @@
 
 
 /*CURIOSIDADES- fim*/
+
+
+
+
+
+@media screen and (max-width:1300px) {
+   .div_detalhesProduto {
+      flex-direction: column;
+      align-items: center;
+   }
+   .div_detalhesProduto_esquerda{
+      width: 100%;
+      display: flex;
+   }
+   .div_detalhesProduto_direita {
+      width: 100%;
+   }
+   .name_description_detalhesProduto {
+      width: 80%;
+      text-align: center;
+      margin-bottom: 30px;
+   }
+   .div_curiosidades {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+   .div_curiosidades img {
+      width: 100%;
+   }
+   .div_curiosidades div {
+      width: 100%;
+      background-color: #3d3d3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+   .div_curiosidades h2 {
+      text-align: center;
+      font-weight: bold;
+      color: yellow;
+      font-size: 25px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+   }
+   .div_curiosidades text {
+      width: 60%;
+      font-size: 20px;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+   }
+   .div_curiosidades2 {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+   }
+   .div_curiosidades2 img {
+      width: 100%;
+   }
+   .div_curiosidades2 div {
+      width: 100%;
+      background-color: #3d3d3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+   }
+   .div_curiosidades2 h2 {
+      text-align: center;
+      font-weight: bold;
+      color: yellow;
+      font-size: 25px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+   }
+   .div_curiosidades2 text {
+      width: 60%;
+      font-size: 20px;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+   }
+   .div_curiosidades2 ul {
+      width: 60%;
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+      margin-top: 20px;
+   }
+}
+@media screen and (max-width:650px) {
+   .div_detalhesProduto_direita {
+      flex-direction: column;
+      align-items: center;
+   }
+   .pagamento_detalhesProduto {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 300px;
+   }
+   .div_pagamento {
+      width: 280px;
+   }
+}
+@media screen and (max-width:450px) {
+   .image_detalhesProduto img {
+      width: 250px;
+      height: 250px;
+   } 
+   .div_curiosidades h2 {
+      text-align: center;
+      font-weight: bold;
+      color: yellow;
+      font-size: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+   }
+   .div_curiosidades text {
+      width: 90%;
+      font-size: 15px;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+   }
+   .div_curiosidades2 h2 {
+      text-align: center;
+      font-weight: bold;
+      color: yellow;
+      font-size: 20px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+   }
+   .div_curiosidades2 text {
+      width: 90%;
+      font-size: 15px;
+      color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+   }
+   .div_curiosidades2 ul {
+      width: 80%;
+      font-size: 15px;
+      color: rgb(255, 255, 255);
+      margin-top: 20px;
+   }
+}

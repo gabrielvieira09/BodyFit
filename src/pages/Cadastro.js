@@ -72,7 +72,8 @@ export default function Cadastro() {
       <Header openModal={openModal} />
       <div className="login_no_cadastro">
         <text>JÁ SOU CLIENTE</text>
-        <button onClick={openModal}>Clique aqui para fazer Login</button>
+        <button className="login_cadastro_botao1" onClick={openModal}>Clique aqui para fazer Login</button>
+        <button className="login_cadastro_botao2" onClick={openModal}>Fazer Login</button>
       </div>
       <div className="line_cadastro">
         <div></div>
@@ -117,20 +118,22 @@ export default function Cadastro() {
             </div>
             <div className="componente_cadastro">
               <text>Senha *</text>
-              <input
-                className="input_medio_cadastro"
-                type={mostrarSenha ? "text" : "password"}
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-              <FaEyeSlash
-                className="icone_olho"
-                onMouseDown={() => setMostrarSenha(true)}
-                onMouseUp={() => setMostrarSenha(false)}
-                onMouseLeave={() => setMostrarSenha(false)}
-              />
+              <div>
+                <input
+                  className="input_medio_cadastro_senha"
+                  type={mostrarSenha ? "text" : "password"}
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+                <FaEyeSlash
+                  className="icone_olho"
+                  onMouseDown={() => setMostrarSenha(true)}
+                  onMouseUp={() => setMostrarSenha(false)}
+                  onMouseLeave={() => setMostrarSenha(false)}
+                />
+              </div>
             </div>
           </div>
           <div className="block_menor">
@@ -168,7 +171,7 @@ export default function Cadastro() {
               />
             </div>
             <div className="componente_cadastro">
-              <text>Logradouro *</text>
+              <text>Rua *</text>
               <input
                 className="input_medio_cadastro"
                 name="logradouro"

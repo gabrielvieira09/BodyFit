@@ -464,3 +464,182 @@
 .no-scroll {
    overflow: hidden;
 }
+
+
+/*RESPONSIVO*/
+
+@media screen and (max-width:1370px) {
+   .explicacao h1 {
+      text-align: center;
+   }
+   .explicacao h2 {
+      width: 100%;
+      text-align: center;
+      font-size: 25px;
+   }
+   .explicacao h2 {
+      margin-left: 0px;
+   }
+   .botao_expandir {
+      margin-top: 20px;
+   }
+   #matheus_depoimento {
+      display: none;
+   }
+   .depoimento_individual {
+      width: 40%;
+      height: 350px;
+      margin-left: 18px;
+      margin-right: 18px;
+   }
+}
+@media screen and (max-width:880px) {
+   #octavio_depoimento {
+      display: none;
+   }
+   .depoimento_individual {
+      width: 60%;
+      height: 350px;
+      margin-left: 18px;
+      margin-right: 18px;
+   }
+}
+
+@media screen and (max-width:1000px) {
+   .div_banner_principal {
+      height: 350px;
+      margin-top: 20px;
+   }
+   .explicacao h1 {
+      text-align: center;
+      font-size: 40px;
+   }
+   .explicacao p {
+      font-size: 15px;
+   }
+   .botao_expandir {
+      margin-top: 20px;
+   }
+}
+@media screen and (max-width:600px) {
+   .div_banner_principal {
+      height: 250px;
+   } 
+   .banner_principal_botao {
+      display: none;
+   }
+   .explicacao h1 {
+      font-size: 25px;
+   }
+   .explicacao h2 {
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+   }
+   .explicacao p {
+      font-size: 10px;
+   }
+   .botao_expandir {
+      margin-top: 20px;
+      font-size: 15px;
+   }
+   .depoimento_individual {
+      width: 70%;
+      height: 350px;
+      margin-left: 18px;
+      margin-right: 18px;
+   }
+   .botoes_depoimentos {
+      display: none;
+   }
+
+   .caixa_de_informacoes {
+      width: 400px;
+   }
+   .caixas_de_textos_gerais {
+      width: 400px;
+   }
+   .icone_de_fechar {
+      margin-left: 350px;
+   }
+   .pergunta_cadastrar {
+      margin-right: 70px;
+   }
+}
+@media screen and (max-width:450px) {
+   .div_banner_principal {
+      margin-top: 0px;
+      height: 127px;
+   } 
+   .banner_principal {
+      width: 100%;
+   }
+   .banner_principal img {
+      border-radius: 0px;
+      height: auto;
+   }
+   .banner_principal_botao {
+      display: none;
+   }
+   .div_title_maisVendido {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .title_maisVendido {
+      width: 75%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 0px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+      border-bottom: 4px solid black;
+   }
+   .title_maisVendido text {
+      font-size: 25px;
+      font-weight: bold;
+   }
+   .explicacao h1 {
+      font-size: 20px;
+   }
+   .explicacao h2 {
+      font-size: 15px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+   }
+   .explicacao p {
+      font-size: 9px;
+   }
+   .botao_expandir {
+      margin-top: 20px;
+      font-size: 12px;
+   }
+   .div_parte_depoimentos {
+      display: none;
+   }
+
+   .caixa_de_informacoes {
+      width: 280px;
+      height: 450px;
+   }
+   .informe_seus_dados {
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: 5px;
+      margin-top: 25px;
+   }
+   .caixas_de_textos_gerais {
+      width: 280px;
+   }
+   .icone_de_fechar {
+      margin-left: 210px;
+   }
+   .pergunta_cadastrar {
+      margin-right: 10px;
+   }
+}
+
+/*RESPONSIVO - fim*/
