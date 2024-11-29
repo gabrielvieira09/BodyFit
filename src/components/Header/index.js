@@ -43,8 +43,8 @@ export default function Header() {
       }
    };
 
-
-   const [modalVisible, setModalVisible] = useState(false);
+   const [modalVisible, setModalVisible] = useState(false);  // Modal de login
+   const [menuModalVisible, setMenuModalVisible] = useState(false);  // Modal do menu
    const [mostrarSenha, setMostrarSenha] = useState(false);
 
    const openModal = () => setModalVisible(true);
@@ -55,16 +55,18 @@ export default function Header() {
       setModalVisible(false);
    }
 
+   const openMenuModal = () => setMenuModalVisible(true);
+   const closeMenuModal = () => setMenuModalVisible(false);
 
    useEffect(() => {
-      if (modalVisible) {
+      if (modalVisible || menuModalVisible) {
          document.body.classList.add("no-scroll");
       } else {
          document.body.classList.remove("no-scroll");
       }
 
       return () => document.body.classList.remove("no-scroll");
-   }, [modalVisible]);
+   }, [modalVisible, menuModalVisible]);
 
    return (
       <div>
@@ -89,7 +91,7 @@ export default function Header() {
             </div>
             <div className="header_inferior">
                <div className="header_inferior_logo">
-                  <button onClick={() => openModal()}>
+                  <button onClick={openMenuModal}>
                      <FiMenu id="aba_menu-mobile" />
                   </button>
                   <a href="/">
@@ -111,7 +113,7 @@ export default function Header() {
                         <div className="search_usuario_person">
                            <FaRegHeart />
                            <a href="/listadesejo">
-                              <text>Lista de desejos</text>
+                              <p>Lista de desejos</p>
                            </a>
                         </div>
                         <div className="search_usuario_person">
@@ -121,7 +123,7 @@ export default function Header() {
                                  {user.role === "ADMIN" ? "ADMIN" : "Perfil"}
                               </Link>
                            ) : (
-                              <text onClick={() => openModal()}>Entrar</text>
+                              <text onClick={openModal}>Entrar</text>
                            )}
                         </div>
                         <div className="search_usuario_carrinho">
@@ -181,53 +183,59 @@ export default function Header() {
                </div>
             </div>
          </div>
-         {modalVisible && (
-            <div className="menuMobile_container">
-               <div className="div_fechar_mobile">
-                  <MdClose className="icone_fechar_mobile" onClick={closeModal} />
-               </div>
-               <div>
-                  {user && user.role !== "ADMIN" || user == undefined && (
-                     <div className="header_inferior_navigation_baixo_mobile">
-                        <a className="divs_nav_individual_mobile" href="/produtos">
-                           Todos os Produtos
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="/lancamentos">
-                           Lançamentos
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="#">
-                           Whey Protein
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="#">
-                           Barra de Proteina
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="#">
-                           Creatina
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="#">
-                           Pré-Treino
-                        </a>
-                     </div>
-                  )}
-                  {user && user.role === "ADMIN" && (
-                     <div className="header_inferior_navigation_baixo_mobile">
-                        <a className="divs_nav_individual_mobile" href="/produtos">
-                           Todos os Produtos
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="/lancamentos">
-                           Lançamentos
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="/admin/historico-vendas">
-                           Historico de vendas
-                        </a>
-                        <a className="divs_nav_individual_mobile" href="/admin/usuarios">
-                           Gestão de usuários
-                        </a>
-                     </div>
-                  )}
+
+         {/* Modal do menu */}
+         {menuModalVisible && (
+            <div className="fundo_menu_mobile">
+               <div className="menuMobile_container">
+                  <div className="div_fechar_mobile">
+                     <MdClose className="icone_fechar_mobile" onClick={closeMenuModal} />
+                  </div>
+                  <div>
+                     {(!user || (user && user.role !== "ADMIN")) && (
+                        <div className="header_inferior_navigation_baixo_mobile">
+                           <a className="divs_nav_individual_mobile" href="/produtos">
+                              Todos os Produtos
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="/lancamentos">
+                              Lançamentos
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="#">
+                              Whey Protein
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="#">
+                              Barra de Proteina
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="#">
+                              Creatina
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="#">
+                              Pré-Treino
+                           </a>
+                        </div>
+                     )}
+                     {user && user.role === "ADMIN" && (
+                        <div className="header_inferior_navigation_baixo_mobile">
+                           <a className="divs_nav_individual_mobile" href="/produtos">
+                              Todos os Produtos
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="/lancamentos">
+                              Lançamentos
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="/admin/historico-vendas">
+                              Historico de vendas
+                           </a>
+                           <a className="divs_nav_individual_mobile" href="/admin/usuarios">
+                              Gestão de usuários
+                           </a>
+                        </div>
+                     )}
+                  </div>
                </div>
             </div>
          )}
+
+         {/* Modal de login */}
          {modalVisible && (
             <div className="modal-login_container">
                <div className="caixa_de_informacoes">

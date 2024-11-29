@@ -42,7 +42,7 @@ export default function AppRoutes() {
         {/* Rotas protegidas (apenas usuários logados) */}
         
         <Route element={<PrivateRoutes />}>
-         {/* <Route path="/listadesejo" element={<ListaDesejo />} /> */}
+          <Route path="/lista-desejos" element={<ListaDesejo />} /> 
          <Route path="/carrinho" element={<Carrinho />} />
          <Route path="/creatina" element={<Creatina />} />
         <Route path="/wheyprotein" element={<WheyProtein />} />

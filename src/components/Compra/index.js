@@ -81,8 +81,6 @@ export default function Compra({ pedido }) {
                   <div className="Blocos_Endereço">
                      <div className="Local_Exato">
                         <p>{pedido.enderecoEntrega}</p>
-                        <p>{pedido.enderecoEntrega}</p>
-                        <p>{pedido.enderecoEntrega}</p>
                      </div>
                      <div className="Referência_Residencial">
                         <p>Casa</p>

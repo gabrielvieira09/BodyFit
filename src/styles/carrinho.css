@@ -5,6 +5,9 @@
 .carrinho_produtos_main {
    width: 70%;
    height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 .container_title_carrinho {
    width: 100%;

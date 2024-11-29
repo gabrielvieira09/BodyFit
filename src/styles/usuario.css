@@ -3,6 +3,7 @@
    display: flex;
    justify-content: center;
    flex-direction: column;
+   align-items: center;
 }
 .usuarios_title {
    width: 100%;
@@ -32,6 +33,18 @@
 
 
 /*MODAL EDITAR USUARIO*/
+.fundo_dados_perfil_usuario {
+   width: 100%;
+   height: 100vh;
+   backdrop-filter: blur(10px);
+   z-index: 5;
+   position: absolute;
+   top:0%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .dadosPessoais_perfil_usuario {
    width: 55%;
    border: 3px solid gray;
@@ -41,6 +54,7 @@
    padding-top: 10px;
    background-color: #3D3D3D;
    color: white;
+   
 }
 .icone_fechar_perfil_usuario {
    margin-left: 94%;
@@ -138,3 +152,22 @@
    color: #FFFF00;
 }
 /*MODAL EDITAR USUARIO - fim*/
+
+
+
+@media screen and (max-width: 850px) {
+   .usuarios_title h1 {
+      font-size: 20px;
+   }
+   .usuarios_div {
+      border: none;
+   }
+   .usuarios_div {
+      width: auto;
+   }
+   .usuarios_main {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+   }
+}

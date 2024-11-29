@@ -89,68 +89,19 @@
 .produtos_main {
    margin-top: 80px;
    width: 100%;
+   display: flex;
+   justify-content: center;
 }
 
-/*FILTRAGEM*/
-.div_filtragem {
-   padding-left: 20px ;
-   width: 22.5%;
-   height: 100%;
-   padding-bottom: 20px;
-   overflow-y: auto;
-}
-.filtragem_container {
-   width: 93%;
+/*PRODUTOS LANCAMENTOS*/
+
+.todos_produtos_lancados {
    display: flex;
-   flex-direction: column;
-   border-radius: 20px;
-   border: 2px solid black
+   width: 90%;
+   flex-wrap: wrap;
+   justify-content: center;
 }
-.filtragem_container h3 {
-   margin-left: 20px;
-   margin-top: 10px;
-   margin-bottom: 5px;
-}
-.marcas_filtragem {
-   margin-left: 20px;
-   width: 85%;
-   border-top: 2px solid black;
-   border-bottom: 2px solid black;
-   margin-bottom: 10px;
-   padding-bottom: 10px;
-   padding-top: 10px;
-}
-.marcas_filtragem div {
-   display: flex;
-   align-items: center;
-   width:100%;
-}
-.marcas_filtragem input {
-   width: 20px;
-   height: 20px;
-   margin-top: 5px;
-   margin-bottom: 5px;
-   cursor: pointer;
-}
-.marcas_filtragem text {
-   font-size: 18px;
-   color: rgb(144, 144, 144);
-   margin-left: 10px;
-}
-.marcas_filtragem input[type="checkbox"]:checked::after{
-   background-color: yellow;
- }
-.filtragem_container button {
-   width: 80%;
-   height: 40px;
-   background-color: yellow;
-   border-radius: 15px;
-   margin-left: 30px;
-   margin-bottom: 10px;
-   font-size: 16px;
-   font-weight: bold;
-   cursor: pointer;
-}
-/*FILTRAGEM - fim*/
+
+/*PRODUTOS LANCAMENTOS - fim*/
 
 /*PRODUTOS MAIN - fim*/

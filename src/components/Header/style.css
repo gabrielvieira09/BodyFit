@@ -125,6 +125,9 @@
 .search_usuario_person text {
    font-size: 14px;
 }
+.search_usuario_person p {
+   font-size: 14px;
+}
 .search_usuario_person:hover {
    text-decoration: underline;
 }
@@ -189,6 +192,17 @@
 .icone_fechar_mobile:hover {
    color: yellow;
 }
+.fundo_menu_mobile {
+   width: 100%;
+   height: 100vh;
+   backdrop-filter: blur(10px);
+   z-index: 5;
+   position: absolute;
+   top:0%;
+   display: flex;
+   justify-content: first baseline;
+   align-items: first baseline;
+}
 .header_inferior_navigation_baixo_mobile {
    width: 100%;
    height: 60px;
@@ -220,10 +234,7 @@
       width: 100%;
       height: 80px;
    }
-   .search_usuario_person text {
-      display: none;
-   }
-   .search_usuario_person_link {
+   .search_usuario_person p {
       display: none;
    }
    .header_inferior_navigation_baixo {

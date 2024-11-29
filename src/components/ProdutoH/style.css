@@ -99,4 +99,112 @@
    border: none;
    cursor: pointer;
 }
+.ProdutosH_mobile_direita {
+   display: flex;
+   width: 100%;
+   justify-content: space-around;
+}
 /*PRODUTOS HORIZONTAL - fim*/
+
+
+@media screen and (max-width: 720px) {
+   .ProdutosH_component {
+      width: 280px;
+      height: 200px;
+   }
+   .ProdutosH_mobile_direita {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+   }
+   .ProdutosH_component {
+      user-select: none;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0.1rem 0.1rem 0.5rem 0 black;
+      border: 1px solid rgb(192, 192, 192);
+      border-radius: 5px;
+   }
+   .ProdutosH_heart {
+      width: 8%;
+   }
+   .ProdutosH_heart div {
+      width: 20px;
+      height: 20px;
+   }
+   .heart_icon_ProdutosH-notFavorite {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      background-color: white;
+   }
+   .heart_icon_ProdutosH-Favorite {
+      color: #ebeb11;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+   }
+   
+   .ProdutosH_image {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .ProdutosH_image img {
+      width:100px;
+      height: 100px;
+   }
+   .ProdutosH_name {
+      width: 100%;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+   }
+   .ProdutosH_name div {
+      margin-top: 15px;
+      width: 100%;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+   }
+   .ProdutosH_name text {
+      font-weight: bold;
+      font-family: cooper black;
+   }
+   .ProdutosH_values_remover{
+      width: 90%;
+   }
+   .ProdutosH_values_price {
+      width: 90%;
+      font-weight: 600;
+      font-size: 20px;
+   }
+   .ProdutosH_values_discount {
+      width: 100%;
+      font-size: 13px;
+      }
+   .ProdutosH_quantidade {
+      width: 100%;
+      font-size: 13px;
+      font-weight: bold;
+   }
+   .ProdutosH_remover {
+      width: 100%;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+   }
+   .ProdutosH_remover button {
+      width: 60%;
+      height: 45px;
+      font-size: 16px;
+      margin-left: 10px;
+      color: white;
+      background-color: black;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+   }
+}

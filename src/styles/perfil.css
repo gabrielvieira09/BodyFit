@@ -88,7 +88,29 @@
    border-radius: 15px;
    display: flex;
    flex-direction: column;
-   padding-top: 10px;
+   padding: 10px;
+   
+}
+.form_group input {
+   background-color: transparent;
+   font-size: 20px;
+   border-radius: 5px;
+   padding-left: 10px;
+   margin: 10px;
+}
+.form_group label {
+   color: #1f1f1f;
+}
+.form_buttons {
+   display: flex;
+   align-items: end;
+   justify-content: end;
+}
+.form_buttons button {
+   font-size: 20px;
+   background-color: transparent;
+   border: none;
+   color: #9C9C07;
 }
 .block_perfil {
    width: 100%;
@@ -202,3 +224,48 @@
 }
 /*PERFIL HISTÓRICO - fim*/
 /*PERFIL COMPONENTES - fim*/
+
+/*MODAL SAIR*/
+
+.modal_sair_fundo {
+   width: 100%;
+   height: 100vh;
+   backdrop-filter: blur(10px);
+   z-index: 5;
+   position: absolute;
+   top:0%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.modal_sair_perfil_container{
+   width: 280px;
+   background-color: #1f1f1f;
+   height: 120px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 10px;
+}
+.modal_sair_perfil div {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   margin-top: 20px;
+}
+.modal_sair_perfil p {
+   color: yellow;
+   font-size: 18px;
+}
+.modal_sair_botao {
+   color: white;
+   background-color: transparent;
+   border: none;
+   font-size: 18px;
+   cursor: pointer;
+}
+.modal_sair_botao:hover {
+   color: #9C9C07;
+}
+
+/*MODAL SAIR - fim*/

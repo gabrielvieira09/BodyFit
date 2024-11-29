@@ -1,10 +1,76 @@
-import React from "react";
 import "../styles/barraProteina.css"
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import banner from "../assets/banners/banner(barraProteina).png"
+import ProdutosV from "../components/ProdutoV";
+import Add from "../assets/produtos/Add.png";
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
+import { AuthContext } from "../contexts/AuthContext";
+import React, { useState, useEffect, useContext } from "react";
 
 export default function BarraProteina() {
+   const [produtos, setProdutos] = useState([]); // Todos os produtos
+   const [produtosFiltrados, setProdutosFiltrados] = useState([]); // Produtos filtrados
+   const [marcas, setMarcas] = useState([]); // Marcas disponíveis
+   const [loading, setLoading] = useState(true);
+   const [error, setError] = useState("");
+   const [filtros, setFiltros] = useState([]); // Filtros de marca
+   const navigate = useNavigate();
+   const { user } = useContext(AuthContext); // Usuário logado
+
+   // Buscar produtos e marcas ao carregar a página
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const [produtosResponse, marcasResponse] = await Promise.all([
+               api.get(`/produtos`),
+               api.get("/marcas"),
+            ]);
+
+            // Filtrar produtos com a palavra "Creatina" no nome (ou outro campo)
+            const produtosFiltrados = produtosResponse.data.filter((produto) =>
+               produto.nome.toLowerCase().includes("barra") // Verifica o nome
+            );
+
+            setProdutos(produtosFiltrados); // Define produtos com "Creatina"
+            setProdutosFiltrados(produtosFiltrados); // Inicialmente, exibe todos os produtos com "Creatina"
+            setMarcas(marcasResponse.data);
+         } catch (err) {
+            setError("Erro ao carregar dados. Tente novamente.");
+            console.error(err);
+         } finally {
+            setLoading(false);
+         }
+      };
+
+      fetchData();
+   }, [user?.role]);
+
+   // Atualizar filtros de marcas
+   const handleFiltroChange = (marcaId) => {
+      setFiltros((prevFiltros) =>
+         prevFiltros.includes(marcaId)
+            ? prevFiltros.filter((id) => id !== marcaId) // Remove o filtro
+            : [...prevFiltros, marcaId] // Adiciona o filtro
+      );
+   };
+
+   // Filtrar produtos com base nas marcas selecionadas
+   const buscarProdutosFiltrados = () => {
+      if (filtros.length === 0) {
+         setProdutosFiltrados(produtos); // Se nenhum filtro for selecionado, exibe todos os produtos com "Creatina"
+      } else {
+         const produtosFiltrados = produtos.filter((produto) =>
+            filtros.includes(produto.marcaId) // Filtra produtos pela marca
+         );
+         setProdutosFiltrados(produtosFiltrados);
+      }
+   };
+
+   if (loading) {
+      return <div>Carregando...</div>;
+   }
   return (
     <div className="barraProteina_container">
       <Header />
@@ -35,85 +101,36 @@ export default function BarraProteina() {
          <div className="div_filtragem">
             <h1>FILTRAGEM</h1>
             <div className="filtragem_container">
-               <h3>MARCA</h3>
-               <div className="marcas_filtragem">
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Integralmedica</text>
+            <h3>MARCA</h3>
+                  <div className="marcas_filtragem">
+                     {marcas.map((marca) => (
+                        <div key={marca.id}>
+                           <input
+                              type="checkbox"
+                              value={marca.id}
+                              onChange={() => handleFiltroChange(marca.id)}
+                           />
+                           <label>{marca.nome}</label>
+                        </div>
+                     ))}
                   </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Max Titanium</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Growth</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Black Skull</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Probiótica</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>BodyAction</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Atlhetica</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Atlas</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Diabo Verde</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Dark Lab</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Psichotic</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>DUX</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Four Lab</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>BOLD</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>YoPRO</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>Bio2</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>SharkPro</text>
-                  </div>
-                  <div>
-                     <input type="checkbox"></input>
-                     <text>FTW</text>
-                  </div>
-               </div>
-               <button>Buscar</button>   
+                  <button onClick={buscarProdutosFiltrados}>Buscar</button>   
             </div>   
          </div>   
-         <div></div>   
+         <div className="div_todosProdutos">
+               {user && user.role === "ADMIN" && (
+                  <div onClick={() => navigate("/admin/adicionar-produto")} className="div_criarProduto">
+                     <img src={Add} alt="Adicionar Produto" />
+                  </div>
+               )}
+               {produtosFiltrados.length > 0 ? (
+                  produtosFiltrados.map((produto) => (
+                     <ProdutosV key={produto.id} produto={produto} />
+                  ))
+               ) : (
+                  <p>Nenhum produto encontrado.</p>
+               )}
+            </div>     
       </div> 
       <Footer />
     </div>

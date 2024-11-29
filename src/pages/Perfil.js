@@ -79,15 +79,30 @@ export default function Perfil() {
       e.preventDefault();
       setError("");
       setSuccessMessage("");
-
+  
       try {
-         await api.patch("/perfil/update", formData);
-         setSuccessMessage("Perfil atualizado com sucesso!");
-         setDisabled(true);
+        await api.patch("/perfil", formData);
+        setSuccessMessage("Perfil atualizado com sucesso!");
+        setDisabled(true);
       } catch (error) {
-         setError(error.response?.data?.message || "Erro desconhecido. Por favor, tente novamente.");
+        setError(
+          error.response?.data?.message ||
+            "Erro desconhecido. Por favor, tente novamente."
+        );
       }
+    };
+    const handleAddressChange = (e, index, field) => {
+      const updatedAddress = [...(formData.endereco || usuario?.endereco || [])];
+      if (!updatedAddress[index]) {
+         updatedAddress[index] = {};
+      }
+      updatedAddress[index][field] = e.target.value;
+      setFormData({
+         ...formData,
+         endereco: updatedAddress,
+      });
    };
+   
 
    // Função para habilitar a edição
    const handleEdit = () => {
@@ -149,110 +164,115 @@ export default function Perfil() {
 
                {activeSection === "dadosPessoais" && (
                   <div className="perfil_dados">
-                     <div className="perfil_dados_text">
-                        <text>Dados pessoais</text>
-                     </div>
-                     <form onSubmit={handleSave} className="dadosPessoais_perfil">
-                        {/* Inputs de dados pessoais preenchidos dinamicamente */}
-                        <div className="form_group">
-                           <label>Nome:</label>
-                           <input
-                              type="text"
-                              name="nome"
-                              value={formData.nome || usuario?.nome || ""}
-                              onChange={handleChange}
-                              disabled={disabled}
-                           />
-                        </div>
-                        <div className="form_group">
-                           <label>Email:</label>
-                           <input
-                              type="email"
-                              name="email"
-                              value={formData.email || usuario?.email || ""}
-                              onChange={handleChange}
-                              disabled={disabled}
-                           />
-                        </div>
-                        <div className="form_group">
-                           <label>Telefone:</label>
-                           <input
-                              type="text"
-                              name="telefone"
-                              value={formData.telefone || usuario?.telefone || ""}
-                              onChange={handleChange}
-                              disabled={disabled}
-                           />
-                        </div>
-                        <div className="form_group">
-                           <label>CPF:</label>
-                           <input
-                              type="text"
-                              name="cpf"
-                              value={formData.cpf || usuario?.cpf || ""}
-                              onChange={handleChange}
-                              disabled={disabled}
-                           />
-                        </div>
-                        <div className="form_group">
-                           <label>Endereço:</label>
-                           {usuario?.endereco && usuario.endereco.length > 0 ? (
-                              usuario.endereco.map((end, index) => (
-                                 <div key={index} className="endereco_group">
-                                    <input
-                                       type="text"
-                                       name={`logradouro_${index}`}
-                                       value={formData[`logradouro_${index}`] || end.logradouro || ""}
-                                       onChange={handleChange}
-                                       disabled={disabled}
-                                    />
-                                    <input
-                                       type="text"
-                                       name={`numero_${index}`}
-                                       value={formData[`numero_${index}`] || end.numero || ""}
-                                       onChange={handleChange}
-                                       disabled={disabled}
-                                    />
-                                    <input
-                                       type="text"
-                                       name={`bairro_${index}`}
-                                       value={formData[`bairro_${index}`] || end.bairro || ""}
-                                       onChange={handleChange}
-                                       disabled={disabled}
-                                    />
-                                    <input
-                                       type="text"
-                                       name={`cidade_${index}`}
-                                       value={formData[`cidade_${index}`] || end.cidade || ""}
-                                       onChange={handleChange}
-                                       disabled={disabled}
-                                    />
-                                    <input
-                                       type="text"
-                                       name={`cep_${index}`}
-                                       value={formData[`cep_${index}`] || end.cep || ""}
-                                       onChange={handleChange}
-                                       disabled={disabled}
-                                    />
-                                 </div>
-                              ))
-                           ) : (
-                              <p>Não informado</p>
-                           )}
-                        </div>
-                        <div className="form_buttons">
-                           {disabled ? (
-                              <button type="button" onClick={handleEdit}>
-                                 Editar
-                              </button>
-                           ) : (
-                              <button type="submit">Salvar</button>
-                           )}
-                        </div>
-                     </form>
-                     {error && <p className="error">{error}</p>}
-                     {successMessage && <p className="success">{successMessage}</p>}
+                  <div className="perfil_dados_text">
+                     <text>Dados pessoais</text>
                   </div>
+                  <form onSubmit={handleSave} className="dadosPessoais_perfil">
+                     {/* Inputs de dados pessoais preenchidos dinamicamente */}
+                     <div className="form_group">
+                        <label>Nome:</label>
+                        <input
+                           type="text"
+                           name="nome"
+                           value={formData.nome || usuario?.nome || ""}
+                           onChange={handleChange}
+                           disabled={disabled}
+                        />
+                     </div>
+                     <div className="form_group">
+                        <label>Email:</label>
+                        <input
+                           type="email"
+                           name="email"
+                           value={formData.email || usuario?.email || ""}
+                           onChange={handleChange}
+                           disabled={disabled}
+                        />
+                     </div>
+                     <div className="form_group">
+                        <label>Telefone:</label>
+                        <input
+                           type="text"
+                           name="telefone"
+                           value={formData.telefone || usuario?.telefone || ""}
+                           onChange={handleChange}
+                           disabled={disabled}
+                        />
+                     </div>
+                     <div className="form_group">
+                        <label>CPF:</label>
+                        <input
+                           type="text"
+                           name="cpf"
+                           value={formData.cpf || usuario?.cpf || ""}
+                           onChange={handleChange}
+                           disabled={disabled}
+                        />
+                     </div>
+                     <div className="form_group">
+                        <label>Endereço:</label>
+                        {usuario?.endereco && usuario.endereco.length > 0 ? (
+                           usuario.endereco.map((end, index) => (
+                              <div key={index} className="endereco_group">
+                                 <input
+                                    type="text"
+                                    name="logradouro"
+                                    placeholder="Logradouro"
+                                    value={formData.endereco?.[index]?.logradouro || end.logradouro || ""}
+                                    onChange={(e) => handleAddressChange(e, index, "logradouro")}
+                                    disabled={disabled}
+                                 />
+                                 <input
+                                    type="text"
+                                    name="numero"
+                                    placeholder="Número"
+                                    value={formData.endereco?.[index]?.numero || end.numero || ""}
+                                    onChange={(e) => handleAddressChange(e, index, "numero")}
+                                    disabled={disabled}
+                                 />
+                                 <input
+                                    type="text"
+                                    name="bairro"
+                                    placeholder="Bairro"
+                                    value={formData.endereco?.[index]?.bairro || end.bairro || ""}
+                                    onChange={(e) => handleAddressChange(e, index, "bairro")}
+                                    disabled={disabled}
+                                 />
+                                 <input
+                                    type="text"
+                                    name="cidade"
+                                    placeholder="Cidade"
+                                    value={formData.endereco?.[index]?.cidade || end.cidade || ""}
+                                    onChange={(e) => handleAddressChange(e, index, "cidade")}
+                                    disabled={disabled}
+                                 />
+                                 <input
+                                    type="text"
+                                    name="cep"
+                                    placeholder="CEP"
+                                    value={formData.endereco?.[index]?.cep || end.cep || ""}
+                                    onChange={(e) => handleAddressChange(e, index, "cep")}
+                                    disabled={disabled}
+                                 />
+                              </div>
+                           ))
+                        ) : (
+                           <p>Não informado</p>
+                        )}
+                     </div>
+                     <div className="form_buttons">
+                        {disabled ? (
+                           <button type="button" onClick={handleEdit}>
+                              Editar
+                           </button>
+                        ) : (
+                           <button type="submit">Salvar</button>
+                        )}
+                     </div>
+                  </form>
+                  {error && <p className="error">{error}</p>}
+                  {successMessage && <p className="success">{successMessage}</p>}
+               </div>               
                )}
 
                {activeSection === "historicoCompras" && (
@@ -278,12 +298,16 @@ export default function Perfil() {
 
          {/* Modal de confirmação de logout */}
          {showLogoutModal && (
-            <div className="logout_modal">
-               <div className="logout_modal_content">
+            <div className="modal_sair_fundo">
+            <div className="modal_sair_perfil_container">
+               <div className="modal_sair_perfil">
                   <p>Deseja sair da conta?</p>
-                  <button onClick={handleLogout}>Sim</button>
-                  <button onClick={handleCloseLogoutModal}>Não</button>
+                  <div>
+                     <button className="modal_sair_botao" onClick={handleLogout}>Sim</button>
+                     <button className="modal_sair_botao" onClick={handleCloseLogoutModal}>Não</button>
+                  </div>
                </div>
+            </div>
             </div>
          )}
 

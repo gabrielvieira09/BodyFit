@@ -16,8 +16,36 @@
 .venda-item {
    width: 40%;
    display: flex;
+   justify-content: space-between;
+   margin: 5px;
+   border: 2px solid #1f1f1f;
+   border-radius: 5px;
+   padding: 5px;
 }
 .compra_descricao_venda {
    display: flex;
    flex-direction: column;
 }
+.vendas-list {
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+@media screen and (max-width: 700px) {
+   .historicoVenda_title h1 {
+      font-size: 20px;
+      color: #585858;
+      font-weight: 800;
+   }
+   .venda-item {
+      width: 280px;
+      display: flex;
+      justify-content: space-between;
+      margin: 5px;
+      border: 2px solid #1f1f1f;
+      border-radius: 5px;
+      padding: 5px;
+   }
+}
+

@@ -51,6 +51,7 @@ export default function HistoricoVendas() {
       setModalVisible(!modalVisible);
       setVendaSelecionada(venda); // Define a venda selecionada
    };
+   console.log(vendaSelecionada)
 
    if (loading) {
       return <p>Carregando vendas...</p>;
@@ -107,11 +108,11 @@ export default function HistoricoVendas() {
 
                         <div className="Credenciais_Pessoais">
                            <div className="Pessoa_Real">
-                              <p>{user.nome}</p>
-                              <p>{user.email}</p>
+                              <p>{vendaSelecionada.user.nome}</p>
+                              <p>{vendaSelecionada.user.email}</p>
                            </div>
                            <div className="Número_Telefone">
-                              <p>{user.telefone}</p>
+                              <p>{vendaSelecionada.user.telefone}</p>
                            </div>
                         </div>
 

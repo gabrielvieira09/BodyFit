@@ -75,15 +75,12 @@
    justify-content: center;
    align-items: center;
    margin-bottom: 100px;
+   flex-wrap: wrap;
 }
 .produtos_maisVendido {
    width: 85%;
    display: flex;
    justify-content: center;
-   flex-wrap: wrap;
-}
-.produtos_maisVendido div {
-   display: flex;
    flex-wrap: wrap;
 }
 /*PRODUTOS MAIS VENDIDOS - fim*/

@@ -41,23 +41,25 @@ export default function ProdutosH({ produto, onRemoverProduto }) {
                alt={produto?.produto?.nome || "Produto"}
             />
          </div>
-         <div className="ProdutosH_name">
-            <span>{produto?.produto?.nome || "Produto"}</span>
-         </div>
-         <div className="ProdutosH_values_remover">
-            <div className="ProdutosH_values">
-               <div className="ProdutosH_values_price">
-                  <span>R$ {produto?.produto?.preco?.toFixed(2) || "0.00"}</span>
-               </div>
-               <div className="ProdutosH_values_discount">
-                  <span>Com desconto à vista ou em {produto?.produto?.desconto || "0"}x no cartão</span>
-               </div>
-               <div className="ProdutosH_quantidade">
-                  <span>Quantidade: {produto?.quantidade || "1"}</span>
-               </div>
+         <div className="ProdutosH_mobile_direita">
+            <div className="ProdutosH_name">
+               <span>{produto?.produto?.nome || "Produto"}</span>
             </div>
-            <div className="ProdutosH_remover">
-               <button onClick={handleRemoverProduto}>Remover</button>
+            <div className="ProdutosH_values_remover">
+               <div className="ProdutosH_values">
+                  <div className="ProdutosH_values_price">
+                     <span>R$ {produto?.produto?.preco?.toFixed(2) || "0.00"}</span>
+                  </div>
+                  <div className="ProdutosH_values_discount">
+                     <span>Com desconto à vista ou em {produto?.produto?.desconto || "0"}x no cartão</span>
+                  </div>
+                  <div className="ProdutosH_quantidade">
+                     <span>Quantidade: {produto?.quantidade || "1"}</span>
+                  </div>
+               </div>
+               <div className="ProdutosH_remover">
+                  <button onClick={handleRemoverProduto}>Remover</button>
+               </div>
             </div>
          </div>
          {error && <p className="ProdutosH_error">{error}</p>}

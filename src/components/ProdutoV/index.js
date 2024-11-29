@@ -49,7 +49,6 @@ export default function ProdutosV({ produto }) {
         quantidade: 1, // Quantidade a ser adicionada
       });
       alert("Produto adicionado ao carrinho com sucesso!"); // Notifica o sucesso
-      navigate("/carrinho"); // Redireciona para a página do carrinho
     } catch (error) {
       if (
         error.response &&

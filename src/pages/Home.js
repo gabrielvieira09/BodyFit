@@ -89,18 +89,12 @@ export default function Home() {
 
       <div className="div_produtos_maisVendido">
         <div className="produtos_maisVendido">
-          <div>
-            {/* Mapear os produtos filtrados (os 8 primeiros)
+             {/* Mapear os produtos filtrados (os 8 primeiros) */}
             {produtos.map((produto, index) => (
-              <ProdutosV
+              <ProdutosV produto={produto}
                 key={index}
-                image={produto.imagem} // Supondo que cada produto tenha um campo 'imagem'
-                name={produto.nome} // Supondo que cada produto tenha um campo 'nome'
-                price={produto.preco} // Supondo que cada produto tenha um campo 'preco'
-                discount={produto.desconto} // Supondo que cada produto tenha um campo 'desconto'
               />
-            ))} */}
-          </div>
+            ))} 
         </div>
       </div>
 

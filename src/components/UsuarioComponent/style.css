@@ -50,3 +50,49 @@
 .usuarioComponent_opcoes_remover:hover {
    color: #646464;
 }
+
+
+@media screen and (max-width: 850px) {
+   .usuarioComponent_container {
+      width: 300px;
+      display: flex;
+      border: none;
+      margin-bottom: 1px;
+   }
+   .usuarioComponent_image {
+      width: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+   }
+   .usuarioComponent_image img {
+      width: 30px;
+      margin: 10px;
+      margin-top: 3px;
+   }
+   .usuarioComponent_name {
+      width: 70%;
+   }
+   .usuarioComponent_name div {
+      margin-top: 12px;
+      margin-left: 5px;
+   }
+   .usuarioComponent_name text {
+      font-size: 13px;
+   }
+   .usuarioComponent_opcoes {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-evenly;
+   }
+   .usuarioComponent_opcoes button {
+      font-size: 13px;
+      border: none;
+      background-color: transparent;
+      font-weight: bold;
+      cursor: pointer;
+   }
+}

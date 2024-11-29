@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import ProdutosV from "../components/ProdutoV";
 import Add from "../assets/produtos/Add.png";
 import banner from "../assets/banners/banner(produtos).png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import api from "../services/api"; // Certifique-se de que a API está configurada
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -17,7 +17,12 @@ export default function ProdutosAdmin() {
   const [error, setError] = useState("");
   const [filtros, setFiltros] = useState([]); // Marcas selecionadas para filtro
   const navigate = useNavigate();
+  const location = useLocation(); // Captura a localização da URL
   const { user } = useContext(AuthContext); // Pega o usuário logado
+
+  // Extrai o parâmetro de pesquisa da URL
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search") || ""; // Caso não tenha busca, usa string vazia
 
   // Buscar produtos e marcas
   useEffect(() => {
@@ -42,7 +47,7 @@ export default function ProdutosAdmin() {
     fetchData();
   }, [user?.role]);
 
-  // Atualizar filtros
+  // Atualizar filtros de marcas
   const handleFiltroChange = (marcaId) => {
     setFiltros((prevFiltros) =>
       prevFiltros.includes(marcaId)
@@ -51,16 +56,25 @@ export default function ProdutosAdmin() {
     );
   };
 
-  // Filtrar produtos com base nas marcas selecionadas
+  // Filtrar produtos com base nas marcas selecionadas e busca
   const buscarProdutosFiltrados = () => {
-    if (filtros.length === 0) {
-      setProdutosFiltrados(produtos); // Se nenhum filtro for selecionado, mostra todos os produtos
-    } else {
-      const produtosFiltrados = produtos.filter((produto) =>
-        filtros.includes(produto.marcaId) // Filtra os produtos que pertencem a alguma marca selecionada
+    let produtosFiltrados = produtos;
+
+    // Aplica filtros de marca
+    if (filtros.length > 0) {
+      produtosFiltrados = produtosFiltrados.filter((produto) =>
+        filtros.includes(produto.marcaId)
       );
-      setProdutosFiltrados(produtosFiltrados);
     }
+
+    // Aplica filtro de busca por nome
+    if (searchQuery) {
+      produtosFiltrados = produtosFiltrados.filter((produto) =>
+        produto.nome.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    setProdutosFiltrados(produtosFiltrados);
   };
 
   if (loading) {
@@ -75,25 +89,25 @@ export default function ProdutosAdmin() {
         <div className="detalhamento_banner">
           <div className="autenticidade_det">
             <h2>PRODUTOS 100% AUTÊNTICOS</h2>
-            <p>
+            <text>
               Pode pesquisar na Internet: a BodyFit é uma das poucas marcas
               aprovadas no famoso teste que avaliou a qualidade dos suplementos
               brasileiros.
-            </p>
+            </text>
           </div>
           <div className="qualidade_det">
             <h2>O MELHOR PREÇO, MÁXIMA QUALIDADE</h2>
-            <p>
+            <text>
               Compre direto de nossa fábrica e economize. Sem intermediários,
               repassamos o custo de distribuidores em forma de desconto.
-            </p>
+            </text>
           </div>
           <div className="velocidade_det">
             <h2>ENTREGAS MAIS RÁPIDAS DO PAÍS</h2>
-            <p>
+            <text>
               Pode confiar: em menos de 3 dias, seu produto estará em sua casa
               com qualidade garantida.
-            </p>
+            </text>
           </div>
         </div>
       </div>
@@ -118,11 +132,14 @@ export default function ProdutosAdmin() {
           </div>
         </div>
         <div className="div_todosProdutos">
-        {user && user.role === "ADMIN" && (
-          <div onClick={() => navigate("/admin/adicionar-produto")} className="div_criarProduto">
-            <img src={Add} alt="Adicionar Produto" />
-          </div>
-        )}
+          {user && user.role === "ADMIN" && (
+            <div
+              onClick={() => navigate("/admin/adicionar-produto")}
+              className="div_criarProduto"
+            >
+              <img src={Add} alt="Adicionar Produto" />
+            </div>
+          )}
           {produtosFiltrados.length > 0 ? (
             produtosFiltrados.map((produto) => (
               <ProdutosV key={produto.id} produto={produto} />

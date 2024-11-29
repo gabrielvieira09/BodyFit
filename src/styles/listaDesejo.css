@@ -2,6 +2,8 @@
    display: flex;
    margin-top: 30px;
    margin-bottom: 30px;
+   align-items: center;
+   justify-content: center;
 }
 .listaDesejo_filtragem {
    display: flex;
@@ -27,8 +29,15 @@
    width: 80%;
    border-bottom: 3px solid black;
    padding-bottom: 10px;
+   justify-content: center;
+   flex-wrap: wrap;
 }
 .listaDesejo_produtos_text img {
    width: 75px;
    height: 40px;
+}
+.listaDesejo_produtos_lista {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
 }

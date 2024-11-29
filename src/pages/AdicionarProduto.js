@@ -85,23 +85,23 @@ export default function AdicionarProduto() {
             <div className="criarProduto_informacoes">
                <div className="criarProduto_informacoes_esquerda">
 
-                  <input
+                  {/* <input
                      type="file"
                      multiple
                      accept="image/*"
                      onChange={handleImageChange}
-                  />
-                  {/* <input 
+                  /> */}
+                <input 
             
             type="file" 
             ref={fileInputRef}
             multiple 
             onChange={handleImageChange} 
             className="criarProduto_image_input"
-            /> */}
-                  {/* <button onClick={handleButtonClick} className="criarProduto_image">
+            /> 
+                   <button onClick={handleButtonClick} className="criarProduto_image">
                <img src={camera}/>
-            </button> */}
+            </button>
                </div>
                <div className="criarProduto_informacoes_direita">
                   <div className="direita_div">
